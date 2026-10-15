@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Entra o crea tu cuenta en Punto &amp; Alma para guardar tus creaciones, participar en el foro y seguir tus pedidos.">
+  <meta name="theme-color" content="#3d405b">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://puntoyalma.co/acceso.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Punto & Alma">
+  <meta property="og:title" content="Entrar o crear cuenta · Punto & Alma">
+  <meta property="og:description" content="Entra o crea tu cuenta para guardar tus creaciones, participar en el foro y seguir tus pedidos.">
+  <meta property="og:url" content="https://puntoyalma.co/acceso.html">
+  <meta property="og:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Entrar o crear cuenta · Punto & Alma">
+  <meta name="twitter:description" content="Entra o crea tu cuenta para guardar tus creaciones, participar en el foro y seguir tus pedidos.">
+  <meta name="twitter:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <title>Entrar o crear cuenta · Punto &amp; Alma</title>
+
+  <link rel="icon" href="recursos/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="sitio.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="stylesheet" href="estilos/texturas.css">
+  <link rel="stylesheet" href="estilos/acceso.css">
+  <link rel="stylesheet" href="estilos/asistente.css">
+
+  <script src="scripts/auth.js"></script>
+</head>
+<body>
+
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra de anuncio -->
+  <div class="aviso">
+    <p><i class="fa-solid fa-heart" aria-hidden="true"></i> Hecho a mano con amor en Colombia · Envíos nacionales gratis desde $150.000 <i class="fa-solid fa-truck-fast" aria-hidden="true"></i></p>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="encabezado">
+    <div class="contenedor barra-superior">
+      <a class="marca" href="index.html#inicio"><i class="fa-solid fa-heart" aria-hidden="true"></i> Punto <span>&amp;</span> Alma</a>
+
+      <button class="boton-menu" id="boton-menu" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#productos">Tienda</a>
+        <a href="perfil.html">Mi perfil</a>
+        <a href="ayuda.html">Ayuda</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+
+      <div class="acciones">
+        <a class="usuario usuario-activo" href="perfil.html" aria-label="Mi perfil"><i class="fa-solid fa-user" aria-hidden="true"></i></a>
+        <button class="carrito" type="button" aria-label="Abrir el carrito de compras">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span class="contador-carrito" id="contador-carrito">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <section class="seccion acceso-seccion" id="acceso">
+      <div class="contenedor acceso-rejilla">
+
+        <!-- Presentación -->
+        <div class="acceso-presentacion">
+          <p class="etiqueta" id="acceso-etiqueta">Comunidad Punto &amp; Alma</p>
+          <h1 id="acceso-titulo">Tu cuenta de tejedora</h1>
+          <p class="acceso-entrada" id="acceso-texto">Crea tu cuenta para guardar tus creaciones, participar en el foro y tener tus pedidos y favoritos siempre a mano.</p>
+
+          <ul class="acceso-beneficios">
+            <li><i class="fa-solid fa-image" aria-hidden="true"></i> Publica tus creaciones en tu vitrina</li>
+            <li><i class="fa-solid fa-comments" aria-hidden="true"></i> Comparte ideas y consejos en el foro</li>
+            <li><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i> Sigue tus pedidos y favoritos</li>
+            <li><i class="fa-solid fa-robot" aria-hidden="true"></i> Alma, tu asistente, te guía paso a paso</li>
+          </ul>
+
+          <p class="acceso-privacidad">
+            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+            Tus datos se guardan solo en este navegador. Nada viaja a internet.
+            <a href="ayuda.html#cuentas">Saber más</a>
+          </p>
+        </div>
+
+        <!-- Formulario -->
+        <div class="panel acceso-panel">
+          <div class="acceso-pestanas" role="tablist" aria-label="Iniciar sesión o crear cuenta">
+            <button class="acceso-pestana activo" type="button" id="pestana-entrar" data-panel="entrar" role="tab" aria-selected="true">
+              <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Iniciar sesión
+            </button>
+            <button class="acceso-pestana" type="button" id="pestana-crear" data-panel="crear" role="tab" aria-selected="false">
+              <i class="fa-solid fa-user-plus" aria-hidden="true"></i> Crear cuenta
+            </button>
+          </div>
+
+          <p class="acceso-banda" id="acceso-banda" hidden></p>
+
+          <form class="acceso-form" id="form-entrar" novalidate>
+            <p class="acceso-rol" id="entrar-rol" hidden><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Acceso de administración</p>
+
+            <label for="entrar-email">Correo electrónico</label>
+            <input type="email" id="entrar-email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+
+            <label for="entrar-clave">Contraseña</label>
+            <input type="password" id="entrar-clave" autocomplete="current-password" placeholder="Tu contraseña" required>
+
+            <label class="acceso-recordar">
+              <input type="checkbox" id="entrar-recordar" checked>
+              <span>Mantener mi sesión abierta en este equipo</span>
+            </label>
+
+            <p class="acceso-error" id="entrar-error" role="alert" hidden></p>
+            <button class="boton acceso-enviar" type="submit"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i> Entrar</button>
+          </form>
+
+          <form class="acceso-form" id="form-crear" novalidate hidden>
+            <p class="acceso-rol" id="crear-rol" hidden><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Cuenta de administradora</p>
+            <p class="acceso-rol-nota" id="crear-rol-nota" hidden>Esta será la cuenta que administra la tienda: catálogo, ventas y contenido de las clientas.</p>
+
+            <label for="crear-nombre">Nombre</label>
+            <input type="text" id="crear-nombre" autocomplete="name" placeholder="¿Cómo te llamas?" maxlength="40" required>
+
+            <label for="crear-email">Correo electrónico</label>
+            <input type="email" id="crear-email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+
+            <div class="acceso-fila">
+              <div>
+                <label for="crear-clave">Contraseña</label>
+                <input type="password" id="crear-clave" autocomplete="new-password" placeholder="Mínimo 6 caracteres" required>
+              </div>
+              <div>
+                <label for="crear-clave2">Repítela</label>
+                <input type="password" id="crear-clave2" autocomplete="new-password" placeholder="Otra vez" required>
+              </div>
+            </div>
+
+            <p class="acceso-error" id="crear-error" role="alert" hidden></p>
+            <button class="boton acceso-enviar" type="submit"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Crear mi cuenta</button>
+          </form>
+
+          <p class="acceso-cambiar" id="acceso-cambiar">
+            ¿Ya tienes cuenta?
+            <button type="button" class="enlace" data-ir="entrar">Inicia sesión</button>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="pie" id="contacto">
+    <div class="contenedor pie-legal">
+      <p>© 2026 Punto &amp; Alma · Hecho con <i class="fa-solid fa-heart" aria-hidden="true"></i> y mucha lana ·
+        <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a> · <a href="cookies.html">Cookies</a> ·
+        <a href="index.html">Tienda</a></p>
+    </div>
+  </footer>
+
+  <!-- Aviso "listo" -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ¡Listo!</div>
+
+  <script src="scripts/sitio.js" defer></script>
+  <script src="scripts/catalogo.js" defer></script>
+  <script src="scripts/contenido.js" defer></script>
+  <script src="scripts/db.js" defer></script>
+  <script src="scripts/comun.js" defer></script>
+  <script src="scripts/registro.js" defer></script>
+  <script src="scripts/carrito.js" defer></script>
+  <script src="scripts/ia.js" defer></script>
+  <script src="scripts/asistente.js" defer></script>
+  <script src="scripts/acceso.js" defer></script>
+</body>
+</html>

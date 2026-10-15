@@ -1,0 +1,724 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Panel de ventas, pedidos y contenido de Punto & Alma.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#3d405b">
+  <link rel="canonical" href="https://puntoyalma.co/admin.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Punto & Alma">
+  <meta property="og:title" content="Panel de ventas · Punto & Alma">
+  <meta property="og:description" content="Estadísticas, pedidos, catálogo y moderación de Punto & Alma.">
+  <meta property="og:url" content="https://puntoyalma.co/admin.html">
+  <meta property="og:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Panel de ventas · Punto & Alma">
+  <meta name="twitter:description" content="Estadísticas, pedidos, catálogo y moderación de Punto & Alma.">
+  <meta name="twitter:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <title>Panel de ventas · Punto &amp; Alma</title>
+
+  <link rel="icon" href="recursos/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="stylesheet" href="estilos/texturas.css">
+  <link rel="stylesheet" href="estilos/admin.css">
+  <link rel="stylesheet" href="estilos/tienda.css">
+  <link rel="stylesheet" href="estilos/asistente.css">
+
+  <script src="scripts/auth.js"></script>
+  <script>
+    /* El panel es solo para administración. */
+    if (window.PAAuth && !PAAuth.puedeAdmin()) PAAuth.protegerAdmin();
+  </script>
+</head>
+<body>
+
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra de anuncio -->
+  <div class="aviso">
+    <p><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Panel de ventas · Solo para administración <i class="fa-solid fa-heart" aria-hidden="true"></i></p>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="encabezado">
+    <div class="contenedor barra-superior">
+      <a class="marca" href="index.html#inicio"><i class="fa-solid fa-heart" aria-hidden="true"></i> Punto <span>&amp;</span> Alma</a>
+
+      <button class="boton-menu" id="boton-menu" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <a href="index.html#inicio">Tienda</a>
+        <a href="#resumen">Resumen</a>
+        <a href="#pedidos">Pedidos</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#registros">Registros</a>
+        <a href="#contenido-sitio">Contenido</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#boletin">Boletín</a>
+        <a href="#nube">Nube</a>
+        <a href="#asistente">Asistente</a>
+      </nav>
+
+      <div class="acciones">
+        <a class="usuario" href="perfil.html" aria-label="Mi perfil"><i class="fa-solid fa-user" aria-hidden="true"></i></a>
+        <button class="carrito" type="button" aria-label="Abrir el carrito">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span class="contador-carrito" id="contador-carrito">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- Cabecera del panel -->
+    <section class="seccion panel-cab" id="inicio-panel">
+      <div class="contenedor">
+        <div class="panel-titulo">
+          <p class="etiqueta">Administración</p>
+          <h1>Panel de ventas y contenido</h1>
+          <p class="cabecera-nota">Estadísticas, pedidos, catálogo, bitácora de registros, textos de la página, boletín y moderación de lo que publican tus clientas.</p>
+        </div>
+        <div class="acciones-panel">
+          <span class="sesion-admin" id="sesion-admin"></span>
+          <button class="boton boton-secundario" id="descargar-csv" type="button"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> Descargar reporte</button>
+          <button class="boton boton-secundario" type="button" data-salir><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Cerrar sesión</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resumen -->
+    <section class="seccion dim" id="resumen">
+      <div class="contenedor">
+        <div class="stats-panel" id="stats-panel"></div>
+      </div>
+    </section>
+
+    <!-- Gráficos -->
+    <section class="seccion dim" id="graficos">
+      <div class="contenedor panel-grid">
+        <div class="panel-caja">
+          <h2><i class="fa-solid fa-chart-column" aria-hidden="true"></i> Ventas por semana</h2>
+          <div class="barras" id="barras-ventas"></div>
+        </div>
+        <div class="panel-caja">
+          <h2><i class="fa-solid fa-medal" aria-hidden="true"></i> Productos más vendidos</h2>
+          <ol class="top-productos" id="top-productos"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pedidos -->
+    <section class="seccion dim pedidos" id="pedidos">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta">Administra</p>
+          <h2>Pedidos y ventas</h2>
+          <p class="cabecera-nota">Cambia el estado de cada pedido, elimina registros o agrega una venta manual.</p>
+        </div>
+
+        <div class="panel panel-manual reveal">
+          <h3><i class="fa-solid fa-plus" aria-hidden="true"></i> Registrar venta manual</h3>
+          <form class="form-manual" id="form-manual">
+            <input type="text" id="venta-cliente" placeholder="Cliente" maxlength="60" aria-label="Cliente">
+            <input type="tel" id="venta-telefono" placeholder="Teléfono" maxlength="20" aria-label="Teléfono">
+            <input type="text" id="venta-concepto" placeholder="Producto o concepto" maxlength="80" aria-label="Producto o concepto">
+            <input type="number" id="venta-total" placeholder="Total (COP)" min="0" step="1000" aria-label="Total COP">
+            <select id="venta-estado" aria-label="Estado de la venta">
+              <option value="pagado">Pagado</option>
+              <option value="pendiente">Pendiente</option>
+            </select>
+            <button class="boton" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Registrar</button>
+          </form>
+        </div>
+
+        <div class="panel panel-tabla reveal">
+          <div class="tabla-envoltura" id="tabla-pedidos"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bitácora automática de registros -->
+    <section class="seccion dim registros" id="registros">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-fingerprint" aria-hidden="true"></i> Automático</p>
+          <h2>Bitácora de registros</h2>
+          <p class="cabecera-nota">
+            Cada cuenta nueva, cada suscripción al boletín y cada pedido se anotan solos, con su fecha y su
+            origen. No hay que llenar nada a mano.
+          </p>
+        </div>
+
+        <div class="stats-panel" id="registros-stats"></div>
+
+        <div class="panel panel-contenido reveal" style="margin-top:20px">
+          <div class="panel-contenido-cab">
+            <h3><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i> Movimientos anotados</h3>
+            <div class="panel-acciones">
+              <button class="boton-secundario" id="registros-csv" type="button"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> Descargar CSV</button>
+              <button class="boton-secundario" id="registros-vaciar" type="button"><i class="fa-solid fa-broom" aria-hidden="true"></i> Vaciar bitácora</button>
+            </div>
+          </div>
+
+          <div class="filtros-admin">
+            <div class="buscador">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" id="registros-buscar" placeholder="Buscar por nombre, correo o detalle…" aria-label="Buscar en la bitácora" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="pestanas" id="registros-pestanas" role="tablist" aria-label="Filtrar la bitácora por tipo">
+            <button class="pestana activa" type="button" data-tipo="todos" role="tab" aria-selected="true">Todos</button>
+            <button class="pestana" type="button" data-tipo="cuenta" role="tab" aria-selected="false">Cuentas</button>
+            <button class="pestana" type="button" data-tipo="boletin" role="tab" aria-selected="false">Boletín</button>
+            <button class="pestana" type="button" data-tipo="pedido" role="tab" aria-selected="false">Pedidos</button>
+          </div>
+
+          <div class="tabla-envoltura registros-tabla" id="tabla-registros"></div>
+
+          <p class="nota-pie-contenido">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Aquí se guarda nombre, correo y un resumen. <b>Nunca</b> contraseñas ni claves de la API.
+            La bitácora vive en <b>este navegador</b> y conserva los últimos 600 movimientos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catálogo y contenido de usuarios -->
+    <section class="seccion dim contenido" id="catalogo">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta">Contenido</p>
+          <h2>Catálogo y moderación</h2>
+          <p class="cabecera-nota">
+            Agrega, edita o quita productos sin tocar una línea de código, y revisa lo que publican tus clientas.
+          </p>
+        </div>
+
+        <!-- Productos -->
+        <div class="panel panel-contenido reveal">
+          <div class="panel-contenido-cab">
+            <h3><i class="fa-solid fa-box-open" aria-hidden="true"></i> Productos</h3>
+            <div class="panel-acciones">
+              <button class="boton-secundario" id="exportar-catalogo" type="button" title="Descargar un respaldo">
+                <i class="fa-solid fa-download" aria-hidden="true"></i> Exportar
+              </button>
+              <button class="boton-secundario" id="importar-catalogo" type="button" title="Restaurar desde un respaldo">
+                <i class="fa-solid fa-upload" aria-hidden="true"></i> Importar
+              </button>
+              <input type="file" id="archivo-catalogo" accept="application/json,.json" hidden>
+              <button class="boton" id="nuevo-producto" type="button">
+                <i class="fa-solid fa-circle-plus" aria-hidden="true"></i> Nuevo producto
+              </button>
+            </div>
+          </div>
+
+          <div class="filtros-admin">
+            <div class="buscador">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" id="buscar-admin" placeholder="Buscar producto por nombre o categoría…" aria-label="Buscar producto en el panel">
+            </div>
+            <div class="pestanas" id="pestanas-catalogo" role="tablist">
+              <button class="pestana activa" type="button" data-vista="todos" role="tab" aria-selected="true">Todos</button>
+              <button class="pestana" type="button" data-vista="nuevos" role="tab" aria-selected="false">Nuevos</button>
+              <button class="pestana" type="button" data-vista="editados" role="tab" aria-selected="false">Editados</button>
+              <button class="pestana" type="button" data-vista="eliminados" role="tab" aria-selected="false">Eliminados</button>
+            </div>
+          </div>
+
+          <p class="aviso-edicion" id="aviso-edicion" hidden>
+            <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+            Tu catálogo tiene cambios guardados en este navegador.
+            <button type="button" id="restaurar-catalogo">Restaurar catálogo original</button>
+          </p>
+
+          <div class="lista-productos-admin" id="lista-productos-admin"></div>
+        </div>
+
+        <!-- Moderación -->
+        <div class="panel-grid reveal" style="margin-top:20px">
+          <div class="panel-caja">
+            <div class="panel-contenido-cab">
+              <h3><i class="fa-solid fa-images" aria-hidden="true"></i> Creaciones de clientas</h3>
+              <button class="boton-secundario" id="vaciar-creaciones" type="button">Vaciar</button>
+            </div>
+            <div class="lista-moderacion" id="lista-creaciones"></div>
+          </div>
+
+          <div class="panel-caja">
+            <div class="panel-contenido-cab">
+              <h3><i class="fa-solid fa-comments" aria-hidden="true"></i> Publicaciones del foro</h3>
+              <button class="boton-secundario" id="vaciar-foro" type="button">Vaciar</button>
+            </div>
+            <div class="lista-moderacion" id="lista-foro"></div>
+          </div>
+        </div>
+
+        <p class="nota-pie-contenido">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          Las creaciones y publicaciones que ves aquí son las guardadas en <b>este navegador</b>.
+          Para que las vea toda la tienda hace falta un servidor: mira la guía
+          <a href="ayuda.html#tecnico">“Cómo está hecha la página”</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contenido del sitio -->
+    <section class="seccion dim contenido-sitio" id="contenido-sitio">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-sliders" aria-hidden="true"></i> La página</p>
+          <h2>Contenido del sitio</h2>
+          <p class="cabecera-nota">
+            Cambia los textos de la portada, apaga las secciones que no quieras mostrar y decide qué
+            productos pasan en la imagen del titular y a qué velocidad.
+          </p>
+        </div>
+
+        <form id="form-contenido">
+          <div class="panel-grid">
+            <div class="panel-caja">
+              <h2><i class="fa-solid fa-images" aria-hidden="true"></i> Carrusel del titular</h2>
+
+              <div class="interruptor-ia" style="margin-bottom:14px">
+                <label class="switch-envoltura" for="hero-activo">
+                  <input type="checkbox" id="hero-activo">
+                  <span class="interruptor" aria-hidden="true"></span>
+                  Pasar los productos en la imagen
+                </label>
+              </div>
+
+              <div class="interruptor-ia" style="margin-bottom:14px">
+                <label class="switch-envoltura" for="hero-autoplay">
+                  <input type="checkbox" id="hero-autoplay">
+                  <span class="interruptor" aria-hidden="true"></span>
+                  Que avance solo
+                </label>
+                <label class="switch-envoltura" for="hero-nombre">
+                  <input type="checkbox" id="hero-nombre">
+                  <span class="interruptor" aria-hidden="true"></span>
+                  Poner el nombre
+                </label>
+                <label class="switch-envoltura" for="hero-precio">
+                  <input type="checkbox" id="hero-precio">
+                  <span class="interruptor" aria-hidden="true"></span>
+                  Poner el precio
+                </label>
+              </div>
+
+              <div class="campo-form" style="margin-bottom:14px">
+                <label for="hero-ms">Velocidad de cambio <b id="hero-ms-valor">3.2 s</b></label>
+                <input type="range" id="hero-ms" min="1200" max="9000" step="200" value="3200">
+                <small>Más bajo = más rápido. El mínimo son 1,2 s para que se vea bien.</small>
+              </div>
+
+              <div class="campo-form" style="margin-bottom:16px">
+                <label for="hero-orden">Orden en que pasan</label>
+                <select id="hero-orden"></select>
+              </div>
+
+              <p class="modal-rotulo">Productos que sí pasan</p>
+              <div class="lista-check" id="hero-productos"></div>
+              <p class="nota-pie-contenido" style="margin-top:14px">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                Si destapas los once, la portada muestra los once. Si dejas el carrusel apagado,
+                vuelve la foto fija de las manos tejiendo.
+              </p>
+            </div>
+
+            <div class="panel-caja">
+              <h2><i class="fa-solid fa-toggle-on" aria-hidden="true"></i> Secciones visibles</h2>
+              <p class="cabecera-nota" style="margin-bottom:14px">
+                Desmarca lo que quieras esconder por un tiempo. El titular y los productos no se pueden
+                apagar porque son el corazón de la tienda.
+              </p>
+              <div class="lista-check" id="lista-secciones"></div>
+            </div>
+          </div>
+
+          <div class="panel panel-contenido reveal" style="margin-top:20px">
+            <div class="panel-contenido-cab">
+              <h3><i class="fa-solid fa-pen" aria-hidden="true"></i> Textos de la portada</h3>
+              <span class="estado-ia" id="contenido-estado">Sin cambios</span>
+            </div>
+
+            <p class="nota-pie-contenido" style="margin:0 0 18px">
+              <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+              Lo que dejes en blanco usa el texto que está en el código. En los titulares, un salto de
+              línea se convierte en un salto de línea en la página.
+            </p>
+
+            <div class="form-rejilla" id="lista-textos"></div>
+
+            <div class="acciones-panel" style="margin-top:20px">
+              <button class="boton" type="submit"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Guardar contenido</button>
+              <button class="boton-secundario" type="button" id="contenido-restaurar"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Restaurar todo al original</button>
+              <a class="boton-secundario" href="index.html#inicio" target="_blank" rel="noopener"><i class="fa-solid fa-eye" aria-hidden="true"></i> Ver la página</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Comunidad: cuentas y autoría -->
+    <section class="seccion dim comunidad" id="comunidad">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta">Comunidad</p>
+          <h2>Usuarias y quién subió cada cosa</h2>
+          <p class="cabecera-nota">
+            Cada cuenta con sus creaciones y publicaciones. Desde aquí también puedes dar acceso de
+            administración a otra persona de confianza.
+          </p>
+        </div>
+
+        <div class="stats-panel" id="comunidad-stats"></div>
+
+        <div class="panel panel-tabla reveal" style="margin-top:20px">
+          <div class="tabla-envoltura" id="tabla-usuarios"></div>
+        </div>
+
+        <p class="nota-pie-contenido">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          Las cuentas viven en <b>este navegador</b>. Para que alguien entre desde otro equipo hace
+          falta un servidor con autenticación real: mira la guía
+          <a href="ayuda.html#cuentas">Cuentas e inicio de sesión</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Boletín y clientas -->
+    <section class="seccion dim boletin-panel" id="boletin">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contacto</p>
+          <h2>Boletín y clientas</h2>
+          <p class="cabecera-nota">
+            Quién se suscribió al boletín, qué correos ya tienen cuenta y cuántas clientas han comprado.
+          </p>
+        </div>
+
+        <div class="stats-panel" id="boletin-stats"></div>
+
+        <div class="panel panel-manual reveal" style="margin-top:20px">
+          <h3><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Agregar un correo al boletín</h3>
+          <form class="form-manual" id="form-boletin-admin">
+            <input type="email" id="boletin-correo" placeholder="cliente@correo.com" required aria-label="Correo para el boletín">
+            <button class="boton" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Suscribir</button>
+          </form>
+        </div>
+
+        <div class="panel panel-tabla reveal" style="margin-top:20px">
+          <div class="panel-contenido-cab panel-contenido-cab-suelta">
+            <h3><i class="fa-solid fa-address-book" aria-hidden="true"></i> Suscriptores del boletín</h3>
+            <div class="panel-acciones">
+              <button class="boton-secundario" id="boletin-csv" type="button"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> Descargar CSV</button>
+            </div>
+          </div>
+
+          <div class="filtros-admin filtros-sueltos">
+            <div class="buscador">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <input type="search" id="boletin-buscar" placeholder="Buscar un correo…" aria-label="Buscar en los suscriptores" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="tabla-envoltura tabla-suelta" id="tabla-boletin"></div>
+        </div>
+
+        <div class="panel panel-tabla reveal" style="margin-top:20px">
+          <div class="panel-contenido-cab panel-contenido-cab-suelta">
+            <h3><i class="fa-solid fa-users" aria-hidden="true"></i> Clientas: cuentas y compras</h3>
+            <div class="panel-acciones">
+              <button class="boton-secundario" id="clientas-csv" type="button"><i class="fa-solid fa-file-csv" aria-hidden="true"></i> Descargar CSV</button>
+            </div>
+          </div>
+
+          <div class="tabla-envoltura tabla-suelta" id="tabla-clientas"></div>
+        </div>
+
+        <p class="nota-pie-contenido">
+          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+          Los correos salen del formulario de la portada y de la ficha de cada producto. Se cruzan con las
+          cuentas y con los pedidos, así ves de un vistazo quién ya compró y quién todavía no.
+        </p>
+      </div>
+    </section>
+
+    <!-- Base de datos en la nube -->
+    <section class="seccion dim" id="nube">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Automático</p>
+          <h2>Base de datos en la nube</h2>
+          <p class="cabecera-nota">
+            Todo lo del panel —clientas, pedidos, boletín, bitácora, creaciones, foro,
+            catálogo y contenido— se guarda solo en la nube cada vez que algo cambia.
+          </p>
+        </div>
+
+        <div class="panel panel-contenido reveal">
+          <div class="panel-contenido-cab">
+            <h3><i class="fa-solid fa-database" aria-hidden="true"></i> Conexión con Supabase</h3>
+            <span class="estado-ia" id="nube-estado">Solo local</span>
+          </div>
+
+          <form class="form-ia" id="form-nube">
+            <div class="interruptor-ia">
+              <label class="switch-envoltura" for="nube-auto">
+                <input type="checkbox" id="nube-auto" checked>
+                <span class="interruptor" aria-hidden="true"></span>
+                Guardado automático
+              </label>
+              <p id="nube-detalle">Solo en este navegador · pega tu URL y API key abajo.</p>
+            </div>
+
+            <div class="campos-ia">
+              <div class="campo-ia">
+                <label for="nube-url">URL del proyecto</label>
+                <input type="url" id="nube-url" placeholder="https://tu-proyecto.supabase.co" autocomplete="off">
+              </div>
+              <div class="campo-ia">
+                <label for="nube-anon">API key pública (anon)</label>
+                <input type="password" id="nube-anon" placeholder="eyJhbGciOi..." autocomplete="off">
+              </div>
+              <div class="campo-ia">
+                <label for="nube-tabla">Tabla</label>
+                <input type="text" id="nube-tabla" placeholder="tienda_datos" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="acciones-panel">
+              <button class="boton" type="submit"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Conectar y guardar</button>
+              <button class="boton-secundario" id="nube-sincronizar" type="button"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Sincronizar ahora</button>
+              <button class="boton-secundario" id="nube-bajar" type="button"><i class="fa-solid fa-cloud-arrow-down" aria-hidden="true"></i> Bajar de la nube</button>
+              <button class="boton-secundario" id="nube-desconectar" type="button"><i class="fa-solid fa-plug-circle-xmark" aria-hidden="true"></i> Desconectar</button>
+            </div>
+
+            <p class="alerta-clave">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              La key se guarda solo en este navegador y viaja directo a tu proyecto.
+              Usa la clave pública (anon), nunca la service_role.
+            </p>
+          </form>
+
+          <p class="nota-pie-contenido">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Para crear la tabla: entra a Supabase → SQL Editor → pega el archivo
+            <b>supabase.sql</b> que viene con la página → Run. Luego pega aquí la URL
+            (Settings → Data API) y la anon key. Desde ese momento cada cuenta,
+            pedido y suscripción se guarda solo, también desde el celular de tus clientas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Asistente IA -->
+    <section class="seccion dim" id="asistente">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-robot" aria-hidden="true"></i> Automatización</p>
+          <h2>Asistente de IA</h2>
+          <p class="cabecera-nota">
+            “Alma” ya funciona sin internet con el catálogo y las guías de esta página.
+            Si quieres respuestas mas elaboradas, conecta un modelo real.
+          </p>
+        </div>
+
+        <div class="panel panel-contenido reveal">
+          <div class="panel-contenido-cab">
+            <h3><i class="fa-solid fa-plug" aria-hidden="true"></i> Conexión con un modelo de IA</h3>
+            <span class="estado-ia" id="estado-ia">Modo local</span>
+          </div>
+
+          <form class="form-ia" id="form-ia">
+            <div class="interruptor-ia">
+              <label class="switch-envoltura" for="ia-remoto">
+                <input type="checkbox" id="ia-remoto">
+                <span class="interruptor" aria-hidden="true"></span>
+                Usar IA real
+              </label>
+              <p id="ia-estado-texto">El asistente responde con su base local de catálogo y guías.</p>
+            </div>
+
+            <div class="campos-ia">
+              <div class="campo-ia">
+                <label for="ia-endpoint">Endpoint (compatible con /chat/completions)</label>
+                <input type="url" id="ia-endpoint" placeholder="https://api.misproveedor.com/v1/chat/completions" autocomplete="off">
+              </div>
+              <div class="campo-ia">
+                <label for="ia-clave">Clave de la API</label>
+                <input type="password" id="ia-clave" placeholder="sk-..." autocomplete="off">
+              </div>
+              <div class="campo-ia">
+                <label for="ia-modelo">Modelo</label>
+                <input type="text" id="ia-modelo" placeholder="gpt-4o-mini" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="acciones-panel">
+              <button class="boton" type="submit"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Guardar configuración</button>
+              <button class="boton-secundario" id="probar-ia" type="button"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Probar</button>
+              <a class="boton-secundario" href="ayuda.html#ia-real">Ver la guía completa</a>
+            </div>
+
+            <p class="alerta-clave">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              La clave se guarda solo en este navegador y viaja directo de tu computador al proveedor.
+              No la pongas en un equipo compartido y no la subas a GitHub.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="pie">
+    <div class="contenedor pie-legal">
+      <p>© 2026 Punto &amp; Alma ·
+        <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a> · <a href="cookies.html">Cookies</a> ·
+        <a href="index.html">Volver a la tienda</a></p>
+    </div>
+  </footer>
+
+  <!-- Aviso -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ¡Listo!</div>
+
+  <!-- Editor de producto -->
+  <div class="modal" id="modal-producto" hidden>
+    <div class="modal-caja modal-ancho" role="dialog" aria-modal="true" aria-labelledby="modal-producto-titulo">
+      <button class="modal-cerrar" id="cerrar-producto" type="button" aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+
+      <h2 id="modal-producto-titulo">Nuevo producto</h2>
+      <p class="modal-pie-nota">Los cambios aparecen al instante en la tienda, la ficha y el carrito.</p>
+
+      <form id="form-producto">
+        <div class="form-rejilla">
+          <div class="campo-form">
+            <label for="p-id">Identificador (id)</label>
+            <input type="text" id="p-id" placeholder="se arma solo del nombre" maxlength="60">
+            <small>Es la parte de la dirección: producto.html?id=<b>esto</b></small>
+          </div>
+          <div class="campo-form">
+            <label for="p-nombre">Nombre</label>
+            <input type="text" id="p-nombre" required maxlength="80" placeholder="Pulpo Sensorial">
+          </div>
+          <div class="campo-form">
+            <label for="p-categoria">Categoría</label>
+            <input type="text" id="p-categoria" list="lista-categorias" maxlength="40" placeholder="Amigurumi">
+            <datalist id="lista-categorias"></datalist>
+          </div>
+          <div class="campo-form">
+            <label for="p-tipo">Tipo</label>
+            <select id="p-tipo">
+              <option value="fisico">Físico (se envía)</option>
+              <option value="digital">Digital (se descarga)</option>
+            </select>
+          </div>
+          <div class="campo-form">
+            <label for="p-precio">Precio (COP)</label>
+            <input type="number" id="p-precio" min="0" step="500" required placeholder="110000">
+          </div>
+          <div class="campo-form">
+            <label for="p-precio-antes">Precio anterior (opcional)</label>
+            <input type="number" id="p-precio-antes" min="0" step="500" placeholder="220000">
+          </div>
+          <div class="campo-form">
+            <label for="p-rating">Calificación (1-5)</label>
+            <input type="number" id="p-rating" min="1" max="5" step="1" value="5">
+          </div>
+          <div class="campo-form">
+            <label for="p-resenas">Número de reseñas</label>
+            <input type="number" id="p-resenas" min="0" step="1" value="0">
+          </div>
+          <div class="campo-form">
+            <label for="p-insignia">Etiqueta</label>
+            <select id="p-insignia">
+              <option value="">Sin etiqueta</option>
+              <option value="Nuevo">Nuevo</option>
+              <option value="Más vendido">Más vendido</option>
+              <option value="Edición">Edición limitada</option>
+              <option value="Digital">Digital</option>
+              <option value="Kit">Kit</option>
+              <option value="Lanas">Lanas</option>
+              <option value="__otro">Otra…</option>
+            </select>
+          </div>
+          <div class="campo-form" id="campo-insignia-otro" hidden>
+            <label for="p-insignia-otro">Escribe la etiqueta</label>
+            <input type="text" id="p-insignia-otro" maxlength="20" placeholder="Rebaja">
+          </div>
+          <div class="campo-form">
+            <label for="p-stock">Disponibilidad</label>
+            <input type="text" id="p-stock" maxlength="40" placeholder="Solo quedan 4">
+          </div>
+          <div class="campo-form">
+            <label for="p-imagen">Ruta de la imagen</label>
+            <input type="text" id="p-imagen" maxlength="200" placeholder="recursos/img/producto-ovillos.jpg">
+            <small>Ejemplos: <code>recursos/img/producto-ovillos.jpg</code></small>
+          </div>
+          <div class="campo-form campo-previa">
+            <p class="modal-rotulo">Vista previa</p>
+            <img id="previa-producto" alt="Vista previa de la imagen del producto" src="recursos/img/producto-ovillos.jpg">
+          </div>
+        </div>
+
+        <div class="campo-form campo-ancho">
+          <label for="p-imagenes">Galería (rutas separadas por coma)</label>
+          <input type="text" id="p-imagenes" maxlength="600" placeholder="recursos/img/a.jpg, recursos/img/b.jpg">
+        </div>
+
+        <div class="campo-form campo-ancho">
+          <label for="p-descripcion">Descripción</label>
+          <textarea id="p-descripcion" rows="3" maxlength="600" placeholder="Cuenta qué es, de qué está hecha y por qué es especial."></textarea>
+        </div>
+
+        <div class="form-rejilla">
+          <div class="campo-form">
+            <label for="p-beneficios">Beneficios (uno por línea)</label>
+            <textarea id="p-beneficios" rows="4" placeholder="Algodón hipoalergénico&#10;Ojos bordados a mano"></textarea>
+          </div>
+          <div class="campo-form">
+            <label for="p-detalles">Especificaciones (una por línea)</label>
+            <textarea id="p-detalles" rows="4" placeholder="Alto: 28 cm&#10;Hecho en Manizales"></textarea>
+          </div>
+          <div class="campo-form">
+            <label for="p-cuidados">Cuidados</label>
+            <textarea id="p-cuidados" rows="4" placeholder="Lavar a mano con agua fría."></textarea>
+          </div>
+          <div class="campo-form">
+            <label for="p-envio">Envío</label>
+            <textarea id="p-envio" rows="4" placeholder="Listo para despachar en 24-72 h."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-acciones">
+          <button class="boton-secundario" id="cancelar-producto" type="button">Cancelar</button>
+          <button class="boton" type="submit"><i class="fa-solid fa-check" aria-hidden="true"></i> Guardar producto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts/sitio.js" defer></script>
+  <script src="scripts/catalogo.js" defer></script>
+  <script src="scripts/contenido.js" defer></script>
+  <script src="scripts/db.js" defer></script>
+  <script src="scripts/comun.js" defer></script>
+  <script src="scripts/registro.js" defer></script>
+  <script src="scripts/carrito.js" defer></script>
+  <script src="scripts/ia.js" defer></script>
+  <script src="scripts/asistente.js" defer></script>
+  <script src="scripts/admin.js" defer></script>
+</body>
+</html>

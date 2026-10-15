@@ -1,0 +1,231 @@
+/* ============================================================
+   PUNTO & ALMA · Página de acceso (entrar / crear cuenta)
+   ============================================================ */
+
+.acceso-seccion { padding: 64px 0 96px; }
+
+.acceso-rejilla {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 52px;
+  align-items: start;
+}
+
+/* ---------- Presentación ---------- */
+.acceso-presentacion { padding-top: 10px; }
+
+.acceso-presentacion h1 {
+  font-size: clamp(2.1rem, 4.6vw, 3.3rem);
+  margin-bottom: 14px;
+}
+
+.acceso-entrada {
+  max-width: 46ch;
+  margin: 0 0 6px;
+  color: var(--gris);
+  font-size: 1.06rem;
+}
+
+.acceso-beneficios {
+  display: grid;
+  gap: 14px;
+  margin: 28px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.acceso-beneficios li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.acceso-beneficios i {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 13px;
+  background: rgba(224, 120, 90, 0.13);
+  color: var(--terracota-osc);
+}
+
+.acceso-privacidad {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  margin: 0;
+  color: var(--gris);
+  font-size: 0.92rem;
+}
+
+.acceso-privacidad i { margin-top: 3px; color: var(--salvia-osc); }
+.acceso-privacidad a { color: var(--terracota-osc); font-weight: 800; }
+
+/* ---------- Panel del formulario ---------- */
+.acceso-panel {
+  padding: 30px;
+  background: var(--marfil);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.acceso-pestanas {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 6px;
+  background: var(--crema);
+  border-radius: 14px;
+}
+
+.acceso-pestana {
+  flex: 1;
+  padding: 12px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--gris);
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background var(--duracion) var(--suave), color var(--duracion) var(--suave);
+}
+
+.acceso-pestana.activo {
+  background: var(--marfil);
+  color: var(--azul);
+  box-shadow: 0 6px 16px rgba(61, 64, 91, 0.1);
+}
+
+.acceso-banda {
+  margin: 0 0 18px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(61, 64, 91, 0.07);
+  color: var(--azul);
+  font-size: 0.92rem;
+}
+
+.acceso-banda.ok { background: rgba(127, 163, 136, 0.16); color: var(--salvia-osc); }
+
+.acceso-rol {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(61, 64, 91, 0.08);
+  color: var(--azul);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.acceso-rol-nota {
+  margin: 0 0 12px;
+  color: var(--gris);
+  font-size: 0.87rem;
+}
+
+/* ---------- Formulario ---------- */
+.acceso-form { display: grid; gap: 6px; }
+
+.acceso-form label {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.acceso-form input[type="text"],
+.acceso-form input[type="email"],
+.acceso-form input[type="password"] {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid var(--linea);
+  border-radius: 12px;
+  background: var(--crema);
+  color: var(--tinta);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--duracion) var(--suave), box-shadow var(--duracion) var(--suave);
+}
+
+.acceso-form input:focus {
+  outline: none;
+  border-color: var(--terracota);
+  box-shadow: 0 0 0 4px rgba(224, 120, 90, 0.16);
+}
+
+.acceso-recordar {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.acceso-recordar input { width: 18px; height: 18px; accent-color: var(--terracota); }
+
+.acceso-error {
+  margin: 12px 0 0;
+  padding: 10px 13px;
+  border-radius: 10px;
+  background: rgba(198, 90, 60, 0.13);
+  color: var(--terracota-osc);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.acceso-enviar {
+  width: 100%;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.acceso-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.acceso-fila > div { display: grid; gap: 6px; }
+
+.acceso-cambiar {
+  margin: 20px 0 0;
+  text-align: center;
+  color: var(--gris);
+  font-size: 0.92rem;
+}
+
+.enlace {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--terracota-osc);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.enlace:hover { text-decoration: underline; }
+
+/* ---------- Adaptable ---------- */
+@media (max-width: 900px) {
+  .acceso-rejilla { grid-template-columns: 1fr; gap: 34px; }
+  .acceso-presentacion { order: 2; }
+  .acceso-panel { order: 1; }
+}
+
+@media (max-width: 560px) {
+  .acceso-seccion { padding: 40px 0 70px; }
+  .acceso-panel { padding: 22px 18px; }
+  .acceso-fila { grid-template-columns: 1fr; }
+}

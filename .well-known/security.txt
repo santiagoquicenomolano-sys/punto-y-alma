@@ -1,0 +1,8 @@
+Contact: mailto:santiagoquicenomolano@gmail.com
+Expires: 2027-12-31T23:59:00.000Z
+Preferred-Languages: es, en
+Canonical: https://puntoyalma.co/.well-known/security.txt
+Policy: https://puntoyalma.co/terminos.html
+
+# Si encuentras un problema de seguridad en el sitio, escríbenos
+# con el asunto "Seguridad Punto & Alma" y lo revisamos.

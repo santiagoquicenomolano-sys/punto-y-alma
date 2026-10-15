@@ -1,0 +1,171 @@
+/* ============================================================
+   PUNTO & ALMA · Texturas de lana (versión profesional)
+   - SIN repetición visible: los brillos son degradados circulares
+     grandes con no-repeat; la fibra del tejido es ruido fractal
+     con costura continua (stitch), así que no se percibe patrón.
+   - SIN pixelado: la fibra se renderiza suave a 480px (SVG
+     vectorial) y el grano final es finísimo y muy leve.
+   Las letras se leen sin esfuerzo (fondos crema con texto oscuro).
+   ============================================================ */
+
+:root {
+  /* Fibra de tejido de lana: ruido fractal anisotrópico en tono
+     café. Se lee como lana tejida, no como patrón repetido. */
+  --lana: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.045' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.46 0 0 0 0 0.31 0 0 0 0 0.19 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='480' height='480' filter='url(%23f)'/%3E%3C/svg%3E");
+
+  /* Grano de tela finísimo (encima de todo, muy leve) */
+  --grano: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Respaldo global café con leche (bordes mientras carga) */
+html { background-color: #ece0cc; }
+
+body {
+  background-color: #f2e7d5;
+  background-image:
+    radial-gradient(1100px 760px at 12% 6%, rgba(255, 251, 243, 0.9), transparent 62%),
+    radial-gradient(950px 700px at 90% 96%, rgba(214, 179, 134, 0.45), transparent 60%);
+  background-repeat: no-repeat;
+}
+
+/* ============================================================
+   SECCIONES: textura de lana que se diferencia y se lee bien.
+   Brillos cálidos (no-repeat) + fibra continua de tejido.
+   ============================================================ */
+.hero,
+.seccion,
+#detalle-producto {
+  background-color: #f4ead9;
+  background-image:
+    radial-gradient(900px 640px at 12% 10%, rgba(255, 252, 244, 0.9), transparent 60%),
+    radial-gradient(820px 600px at 90% 95%, rgba(219, 185, 142, 0.5), transparent 62%),
+    radial-gradient(700px 520px at 72% 16%, rgba(240, 220, 184, 0.5), transparent 60%),
+    var(--lana);
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-size: auto, auto, auto, 480px 480px;
+}
+
+/* ============================================================
+   OFERTA: banda café profundo con tejido diagonal sutil
+   (texto blanco, se lee perfecto)
+   ============================================================ */
+.oferta {
+  position: relative;
+  background: linear-gradient(115deg, #4a2e1e 0%, #33200f 52%, #52331f 100%);
+}
+
+.oferta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 3px, transparent 3px 6px),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.035) 3px, transparent 3px 6px);
+  background-size: 60px 60px;
+  animation: tramaCamina 36s linear infinite;
+  pointer-events: none;
+}
+
+/* ============================================================
+   Acentos que conservan su color propio
+   ============================================================ */
+.cinta {
+  background: linear-gradient(115deg, #6e442e, #4e2e1e);
+}
+
+.boletin-caja {
+  background: linear-gradient(120deg, #fdf3e3, #fbe7ce 60%, #edbd6d);
+}
+
+.pie {
+  background: #241a12;
+}
+
+/* ============================================================
+   PANEL ESMERILADO del hero (comodidad de lectura)
+   ============================================================ */
+.hero-texto {
+  background: rgba(255, 252, 245, 0.66);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 26px;
+  padding: 30px 34px;
+  box-shadow: 0 16px 40px rgba(120, 84, 52, 0.2);
+}
+
+/* ============================================================
+   GRANO DE TELA sobre toda la página (capa muy sutil)
+   ============================================================ */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-image: var(--grano);
+  background-size: 200px 200px;
+  opacity: 0.035;
+  animation: granoCamina 70s linear infinite;
+  pointer-events: none;
+}
+
+/* ============================================================
+   HERO: luz cálida + blob detrás de la imagen + burbujas
+   ============================================================ */
+.hero::before {
+  animation: respira 9s ease-in-out infinite;
+}
+
+.hero::after { content: none; }
+
+.hero-imagen { isolation: isolate; }
+
+.hero-imagen::before {
+  content: "";
+  position: absolute;
+  inset: 8% 2% 6% -2%;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 30% 35%, rgba(242, 204, 143, 0.6), transparent 60%),
+    radial-gradient(circle at 72% 65%, rgba(217, 168, 126, 0.55), transparent 60%);
+  filter: blur(34px);
+  animation: flotar 7s ease-in-out infinite, respira 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-imagen img { position: relative; z-index: 1; }
+
+.burbuja-1 { animation: flotar 4.5s ease-in-out infinite, latirSuave 3.4s ease-in-out infinite; }
+.burbuja-2 { animation: flotar 5.5s ease-in-out 0.8s infinite, latirSuave 3.8s ease-in-out 0.4s infinite; }
+.burbuja-3 { animation: flotar 6s ease-in-out 1.6s infinite, latirSuave 4.2s ease-in-out 1s infinite; }
+
+/* Se retiran tramas sueltas de sección: la textura es una sola y
+   continua para toda la página */
+.productos::before,
+.beneficios::before,
+.patrones::before,
+.testimonios::before,
+.cinta::after {
+  content: none;
+}
+
+/* ============================================================
+   ANIMACIONES
+   ============================================================ */
+@keyframes granoCamina {
+  to { background-position: 200px 200px; }
+}
+
+@keyframes tramaCamina {
+  to { background-position: 60px 60px; }
+}
+
+@keyframes respira {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes latirSuave {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.07; }
+}

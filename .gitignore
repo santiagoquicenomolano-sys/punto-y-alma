@@ -1,0 +1,14 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs / temp
+*.log
+*.tmp
+
+# No subir claves locales (la anon key de Supabase vive en localStorage, pero por si acaso)
+.env
+.env.*

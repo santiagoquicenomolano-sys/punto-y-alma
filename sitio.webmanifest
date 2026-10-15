@@ -1,0 +1,55 @@
+{
+  "name": "Punto & Alma · Crochet Artesanal",
+  "short_name": "Punto & Alma",
+  "description": "Tienda de crochet artesanal colombiano: amigurumis, cobijas, bolsos, accesorios y patrones digitales.",
+  "lang": "es-CO",
+  "start_url": "index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf6ef",
+  "theme_color": "#3d405b",
+  "categories": ["shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "recursos/img/icono-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "recursos/img/icono-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "recursos/img/icono-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "recursos/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Tienda",
+      "url": "index.html#productos",
+      "description": "Ver los productos"
+    },
+    {
+      "name": "Mi perfil",
+      "url": "perfil.html",
+      "description": "Tu perfil y tus creaciones"
+    },
+    {
+      "name": "Ayuda",
+      "url": "ayuda.html",
+      "description": "Guías y ayuda"
+    }
+  ]
+}

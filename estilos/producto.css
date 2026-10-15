@@ -1,0 +1,370 @@
+/* ============================================================
+   PUNTO & ALMA · Página de detalle de producto
+   ============================================================ */
+
+/* ---------- Miga de pan (breadcrumb) ---------- */
+.ruta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 26px 0 22px;
+  color: var(--gris);
+  font-size: 0.86rem;
+}
+
+.ruta a {
+  color: var(--salvia-osc);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.ruta a:hover { text-decoration: underline; }
+
+.ruta i { font-size: 0.7rem; color: #c9bfae; }
+
+.ruta span { font-weight: 800; color: var(--tinta); }
+
+/* ---------- Diseño general de detalle ---------- */
+.detalle-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: start;
+  padding: 6px 0 54px;
+}
+
+/* ---------- Galería de imágenes ---------- */
+.galeria { position: sticky; top: 130px; }
+
+.galeria-principal {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  background: var(--crema);
+  box-shadow: var(--sombra);
+}
+
+.galeria-principal img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.galeria-principal .insignia { top: 16px; left: 16px; }
+
+.galeria-mini {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.galeria-mini button {
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+  transition: border-color var(--duracion) ease, transform var(--duracion) var(--suave);
+}
+
+.galeria-mini button:hover { transform: translateY(-2px); }
+
+.galeria-mini button.activo { border-color: var(--terracota); }
+
+.galeria-mini img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* ---------- Información del producto ---------- */
+.detalle-info h1 {
+  margin-bottom: 8px;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+}
+
+.fila-resena {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.fila-resena .total-resenas {
+  margin: 0;
+  color: var(--gris);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.precio-detalle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px;
+  margin: 20px 0 6px;
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--azul);
+}
+
+.precio-detalle s {
+  color: var(--gris);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.badge-descuento {
+  padding: 5px 11px;
+  color: #fff;
+  background: #d9534f;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.descripcion-detalle {
+  margin: 16px 0 22px;
+  color: var(--gris);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.beneficios-lista {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.beneficios-lista li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--tinta);
+  font-weight: 600;
+}
+
+.beneficios-lista li i { margin-top: 3px; color: var(--salvia-osc); }
+
+.detalle-bloque { margin: 4px 0 22px; }
+
+.detalle-bloque h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+
+.detalle-bloque ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detalle-bloque li {
+  display: flex;
+  gap: 10px;
+  color: var(--gris);
+}
+
+.detalle-bloque li i { margin-top: 3px; color: var(--miel); }
+
+.nota-digital {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  color: var(--salvia-osc);
+  background: rgba(127, 163, 136, 0.16);
+  border: 1px solid rgba(127, 163, 136, 0.4);
+  border-radius: 14px;
+  font-weight: 800;
+}
+
+/* ---------- Comprar ---------- */
+.comprar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0 12px;
+}
+
+.cantidad {
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid var(--linea);
+  border-radius: 12px;
+  background: var(--crema);
+}
+
+.cantidad button {
+  width: 42px;
+  height: 48px;
+  border: none;
+  background: none;
+  color: var(--terracota);
+  font-size: 1.25rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background var(--duracion) ease;
+}
+
+.cantidad button:hover { background: var(--marfil); }
+
+.cantidad input {
+  width: 52px;
+  height: 48px;
+  border: none;
+  text-align: center;
+  background: transparent;
+  color: var(--tinta);
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.boton-comprar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+}
+
+.btn-whats {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 26px;
+  color: #fff;
+  background: linear-gradient(135deg, #35b76a, #1f7a44);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(31, 122, 68, 0.35);
+  transition: transform var(--duracion) var(--suave), box-shadow var(--duracion) ease;
+}
+
+.btn-whats:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(31, 122, 68, 0.4);
+}
+
+.stock {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin: 8px 0 20px;
+  color: var(--salvia-osc);
+  font-weight: 800;
+}
+
+.confianza {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--linea);
+  color: var(--gris);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.confianza span { white-space: nowrap; }
+
+.confianza i { margin-right: 6px; color: var(--terracota); }
+
+/* ---------- Relacionados ---------- */
+.relacionados { padding: 0 0 64px; }
+
+/* ---------- Producto no encontrado ---------- */
+.no-encontrado {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.no-encontrado i { font-size: 4rem; color: var(--miel); }
+
+.no-encontrado h2 { margin: 18px 0 10px; }
+
+.no-encontrado p { color: var(--gris); margin-bottom: 26px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 920px) {
+  .detalle-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  .galeria { position: static; }
+}
+
+@media (max-width: 640px) {
+  .comprar { flex-direction: column; align-items: stretch; }
+  .cantidad { align-self: flex-start; }
+  .boton-comprar, .btn-whats { justify-content: center; }
+}
+
+/* ---------- Detalles extra ---------- */
+.acciones .carrito {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Micro-fade al cambiar de imagen en la galería */
+.galeria-pop {
+  animation: galeriaSuave 0.45s var(--suave);
+}
+
+@keyframes galeriaSuave {
+  from { opacity: 0.25; transform: scale(0.985); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Botón para preguntar a Alma ---------- */
+.btn-ia {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 20px;
+  border: 2px dashed var(--terracota-claro);
+  border-radius: 999px;
+  background: rgba(224, 120, 90, 0.08);
+  color: var(--terracota-osc);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s var(--suave), border-color 0.25s ease;
+}
+
+.btn-ia:hover {
+  background: rgba(224, 120, 90, 0.16);
+  border-color: var(--terracota);
+  transform: translateY(-2px);
+}
+
+/* ---------- Texto secundario ---------- */
+.texto-gris { color: var(--gris); margin: 0 0 18px; }
+
+/* ---------- Favorito sobre la imagen principal ---------- */
+.galeria-principal .btn-fav { top: 16px; right: 16px; z-index: 2; }
+
+@media (max-width: 640px) {
+  .btn-ia { justify-content: center; }
+}

@@ -1,0 +1,19 @@
+# Punto & Alma · https://puntoyalma.co/
+# Los buscadores pueden recorrer la tienda, las guías y lo legal.
+
+User-agent: *
+Allow: /
+
+# Zonas privadas: no hace falta indexarlas.
+Disallow: /admin.html
+Disallow: /perfil.html
+Disallow: /acceso.html
+Disallow: /offline.html
+
+# Recursos que no aportan a la búsqueda.
+Disallow: /scripts/
+Disallow: /estilos/
+Disallow: /CONTEXTO.md
+
+# Mapa del sitio
+Sitemap: https://puntoyalma.co/sitemap.xml

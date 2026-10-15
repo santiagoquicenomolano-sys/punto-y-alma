@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Punto y Alma">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e0785a"/>
+      <stop offset="1" stop-color="#c65a3c"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#3d405b"/>
+  <path fill="url(#g)" d="M32 51S12 39.6 12 27.6C12 21.2 17.2 16 23.4 16c3.6 0 6.9 1.8 8.6 4.5C33.7 17.8 37 16 40.6 16 46.8 16 52 21.2 52 27.6 52 39.6 32 51 32 51z"/>
+  <path stroke="#f2cc8f" stroke-width="3.4" stroke-linecap="round" fill="none" d="M22.5 27.5c1.4-1.6 3.3-1.6 4.7 0M36.8 27.5c1.4-1.6 3.3-1.6 4.7 0"/>
+  <path stroke="#f2cc8f" stroke-width="3.4" stroke-linecap="round" fill="none" d="M25.5 35.5c3.8 3 9.2 3 13 0"/>
+</svg>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guía completa de Punto & Alma: cómo comprar, subir y editar tus creaciones, usar el foro, administrar productos, moderar contenido y entender cómo está hecha la página.">
+  <meta name="theme-color" content="#3d405b">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://puntoyalma.co/ayuda.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Punto & Alma">
+  <meta property="og:title" content="Guías y ayuda · Punto & Alma">
+  <meta property="og:description" content="Todo sobre la página: compras, contenido de usuarios, panel de ventas y cómo está construida.">
+  <meta property="og:url" content="https://puntoyalma.co/ayuda.html">
+  <meta property="og:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <meta property="og:image:width" content="960">
+  <meta property="og:image:height" content="640">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Guías y ayuda · Punto & Alma">
+  <meta name="twitter:description" content="Todo sobre la página: compras, contenido de usuarios, panel de ventas y cómo está construida.">
+  <meta name="twitter:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <title>Guías y ayuda · Punto &amp; Alma</title>
+
+  <link rel="icon" href="recursos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="recursos/img/apple-touch-icon.png">
+  <link rel="manifest" href="sitio.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="stylesheet" href="estilos/texturas.css">
+  <link rel="stylesheet" href="estilos/asistente.css">
+  <link rel="stylesheet" href="estilos/ayuda.css">
+
+  <script src="scripts/auth.js"></script>
+</head>
+<body>
+
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra de anuncio -->
+  <div class="aviso">
+    <p><i class="fa-solid fa-book-open" aria-hidden="true"></i> Guías escritas a mano, igual que nuestras piezas <i class="fa-solid fa-heart" aria-hidden="true"></i></p>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="encabezado">
+    <div class="contenedor barra-superior">
+      <a class="marca" href="index.html#inicio"><i class="fa-solid fa-heart" aria-hidden="true"></i> Punto <span>&amp;</span> Alma</a>
+
+      <button class="boton-menu" id="boton-menu" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#productos">Tienda</a>
+        <a href="perfil.html">Mi perfil</a>
+        <a href="#todo">Guías</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#glosario">Glosario</a>
+        <a href="#contacto-ayuda">Contacto</a>
+      </nav>
+
+      <div class="acciones">
+        <a class="usuario" href="perfil.html" aria-label="Mi perfil" title="Mi perfil"><i class="fa-solid fa-user" aria-hidden="true"></i></a>
+        <button class="carrito" type="button" aria-label="Abrir el carrito de compras">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span class="contador-carrito" id="contador-carrito">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- Portada -->
+    <section class="ayuda-portada">
+      <div class="contenedor">
+        <p class="etiqueta"><i class="fa-solid fa-compass" aria-hidden="true"></i> Centro de ayuda</p>
+        <h1>Todo sobre Punto <span>&amp;</span> Alma</h1>
+        <p class="ayuda-sub">
+          Aquí está lo que necesitas, sin vueltas: cómo comprar, cómo subir y editar tu contenido,
+          cómo administrar productos y moderar lo que publican tus clientas, y hasta cómo está construida la página por dentro.
+        </p>
+
+        <div class="ayuda-buscador">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input type="search" id="buscar-ayuda" placeholder="Busca una guía: “subir creación”, “pago”, “eliminar producto”…" aria-label="Buscar una guía" autocomplete="off">
+          <button type="button" id="preguntar-alma" class="ayuda-boton-ia">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Pregúntale a Alma
+          </button>
+        </div>
+
+        <div class="ayuda-accesos">
+          <a href="#todo"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Todas las guías</a>
+          <a href="#creaciones"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i> Subir mi creación</a>
+          <a href="#admin-catalogo"><i class="fa-solid fa-box-open" aria-hidden="true"></i> Administrar productos</a>
+          <a href="#admin-moderar"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Moderar contenido</a>
+          <a href="#faq"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Preguntas frecuentes</a>
+          <a href="#glosario"><i class="fa-solid fa-spell-check" aria-hidden="true"></i> Glosario del crochet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compras y envíos (bloques resumidos, siempre visibles) -->
+    <section class="seccion ayuda-express" id="express">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta">Lo más consultado</p>
+          <h2>Respuestas rápidas</h2>
+        </div>
+        <div class="tarjetas-ayuda">
+          <article class="tarjeta-ayuda reveal" id="envios-express">
+            <span aria-hidden="true"><i class="fa-solid fa-truck-fast"></i></span>
+            <h3>Envíos</h3>
+            <p>Despachamos en <b>24 a 72 horas</b> con guía de seguimiento. Envío <b>gratis desde $150.000</b>.</p>
+          </article>
+          <article class="tarjeta-ayuda reveal" id="pago-express">
+            <span aria-hidden="true"><i class="fa-solid fa-money-bill-transfer"></i></span>
+            <h3>Pagos</h3>
+            <p><b>Nequi o Daviplata</b> al 313 638 4065, transferencia Bancolombia, tarjeta o contra entrega en Manizales.</p>
+          </article>
+          <article class="tarjeta-ayuda reveal" id="devoluciones-express">
+            <span aria-hidden="true"><i class="fa-solid fa-rotate-left"></i></span>
+            <h3>Devoluciones</h3>
+            <p>Tienes <b>15 días</b> para cambios y devoluciones. Si hay un fallo de tejido, lo asumimos nosotros.</p>
+          </article>
+          <article class="tarjeta-ayuda reveal" id="hecho-express">
+            <span aria-hidden="true"><i class="fa-solid fa-hand-holding-heart"></i></span>
+            <h3>Hecho a mano</h3>
+            <p>Cada pieza se teje <b>una por una</b> en Manizales. Por eso algunas tienen pocas unidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Todas las guías -->
+    <section class="seccion guias" id="todo">
+      <div class="contenedor guias-layout">
+
+        <!-- Índice lateral -->
+        <aside class="indice-guia" aria-label="Índice de guías">
+          <h2><i class="fa-solid fa-list-ul" aria-hidden="true"></i> Índice</h2>
+          <div id="indice-guias" class="indice-lista"></div>
+          <p class="indice-vacio" id="indice-vacio" hidden>Nada coincide con tu búsqueda.</p>
+        </aside>
+
+        <!-- Cuerpo de guías -->
+        <div class="cuerpo-guias">
+
+          <!-- Alias de anclas usados en los pies de página -->
+          <span class="ancla" id="creaciones"></span>
+          <span class="ancla" id="ia-real"></span>
+
+          <div class="grupo-guias" id="grupo-cliente">
+            <div class="grupo-cabecera">
+              <p class="etiqueta"><i class="fa-solid fa-heart" aria-hidden="true"></i> Para ti</p>
+              <h2>Si eres clienta</h2>
+              <p>Comprar, entender los envíos, subir tus creaciones y participar en el foro.</p>
+            </div>
+            <div class="lista-guias" data-grupo="cliente"></div>
+          </div>
+
+          <div class="grupo-guias" id="grupo-admin">
+            <div class="grupo-cabecera">
+              <p class="etiqueta"><i class="fa-solid fa-user-shield" aria-hidden="true"></i> Para la administración</p>
+              <h2>Si manejas el panel</h2>
+              <p>Pedidos, catálogo de productos, moderación del contenido de las clientas y respaldos.</p>
+            </div>
+            <div class="lista-guias" data-grupo="admin"></div>
+          </div>
+
+          <div class="grupo-guias" id="grupo-tecnico">
+            <div class="grupo-cabecera">
+              <p class="etiqueta"><i class="fa-solid fa-code" aria-hidden="true"></i> Por dentro</p>
+              <h2>Cómo está hecha la página</h2>
+              <p>Qué archivo hace qué y dónde se guardan los datos. Perfecto si vas a personalizarla.</p>
+            </div>
+            <div class="lista-guias" data-grupo="tecnico"></div>
+          </div>
+
+          <!-- Mapa de archivos -->
+          <section class="bloque-extra" id="mapa">
+            <h2><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> Mapa de la página</h2>
+            <p class="bloque-intro">Cada archivo del proyecto y para qué sirve. Útil para ubicar dónde tocar sin miedo.</p>
+            <div class="tabla-scroll">
+              <table class="tabla-ayuda">
+                <thead>
+                  <tr><th>Archivo</th><th>Qué hace</th><th>Cuándo tocarlo</th></tr>
+                </thead>
+                <tbody id="tabla-mapa"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="seccion faq" id="faq">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> Dudas de siempre</p>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="lista-faq" id="lista-faq"></div>
+      </div>
+    </section>
+
+    <!-- Glosario -->
+    <section class="seccion glosario" id="glosario">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-spell-check" aria-hidden="true"></i> Habla el idioma del crochet</p>
+          <h2>Glosario tejedor</h2>
+          <p>Los términos que vas a encontrar en los patrones, explicados como si te los contara una amiga.</p>
+        </div>
+        <div class="grid-glosario" id="grid-glosario"></div>
+      </div>
+    </section>
+
+    <!-- Cuidados -->
+    <section class="seccion cuidados-guia" id="cuidados-tabla">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta"><i class="fa-solid fa-soap" aria-hidden="true"></i> Para que duren años</p>
+          <h2>Tabla de cuidados por material</h2>
+        </div>
+        <div class="tabla-scroll reveal">
+          <table class="tabla-ayuda">
+            <thead>
+              <tr><th>Material</th><th>Lavado</th><th>Secado</th><th>Ojo con</th></tr>
+            </thead>
+            <tbody id="tabla-cuidados"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="seccion contacto-ayuda" id="contacto-ayuda">
+      <div class="contenedor contacto-ayuda-caja reveal">
+        <div>
+          <p class="etiqueta">Seguimos aquí</p>
+          <h2>¿No encontraste tu respuesta?</h2>
+          <p>Escríbenos y te contestamos rápido. De Manizales para el mundo, con la mejor actitud.</p>
+        </div>
+        <div class="contacto-ayuda-acciones">
+          <a class="boton boton-whats-grande" href="https://wa.me/573136384065" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp 313 638 4065
+          </a>
+          <a class="boton boton-claro" href="mailto:santiagoquicenomolano@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Enviar correo
+          </a>
+          <button class="boton boton-claro" type="button" id="preguntar-alma-2">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Preguntarle a Alma
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="pie" id="contacto">
+    <div class="contenedor pie-grid">
+      <div class="pie-col pie-marca">
+        <p class="pie-titulo"><i class="fa-solid fa-heart" aria-hidden="true"></i> Punto <span>&amp;</span> Alma</p>
+        <p>Crochet artesanal colombiano. Tejemos piezas únicas para quienes buscan regalar —o regalarse— algo con alma.</p>
+        <div class="sociales">
+          <a href="https://wa.me/573136384065" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="pie-col">
+        <p class="pie-titulo">Tienda</p>
+        <a href="index.html#categorias">Amigurumis</a>
+        <a href="index.html#categorias">Cobijas &amp; Hogar</a>
+        <a href="index.html#categorias">Bolsos &amp; Accesorios</a>
+        <a href="index.html#patrones">Patrones &amp; Kits</a>
+      </div>
+      <div class="pie-col">
+        <p class="pie-titulo">Ayuda</p>
+        <a href="#envios">Envíos y tiempos</a>
+        <a href="#devoluciones">Devoluciones (15 días)</a>
+        <a href="#faq">Preguntas frecuentes</a>
+        <a href="#glosario">Glosario del crochet</a>
+        <a href="#todo">Guía completa</a>
+      </div>
+      <div class="pie-col">
+        <p class="pie-titulo">Contacto</p>
+        <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Manizales, Colombia</p>
+        <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> santiagoquicenomolano@gmail.com</p>
+        <a href="https://wa.me/573136384065" target="_blank" rel="noopener"><i class="fa-solid fa-phone" aria-hidden="true"></i> 313 638 4065</a>
+        <div class="pagos"><span>Bancolombia</span><span>Nequi</span><span>Daviplata</span><span>Visa/MC</span></div>
+      </div>
+    </div>
+    <div class="contenedor pie-legal">
+      <p>© 2026 Punto &amp; Alma · Hecho con <i class="fa-solid fa-heart" aria-hidden="true"></i> y mucha lana ·
+        <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a> · <a href="cookies.html">Cookies</a> ·
+        <a href="index.html">Tienda</a></p>
+    </div>
+  </footer>
+
+  <!-- Aviso -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ¡Listo!</div>
+
+  <script src="scripts/sitio.js" defer></script>
+  <script src="scripts/catalogo.js" defer></script>
+  <script src="scripts/contenido.js" defer></script>
+  <script src="scripts/comun.js" defer></script>
+  <script src="scripts/registro.js" defer></script>
+  <script src="scripts/carrito.js" defer></script>
+  <script src="scripts/ia.js" defer></script>
+  <script src="scripts/asistente.js" defer></script>
+  <script src="scripts/ayuda.js" defer></script>
+</body>
+</html>

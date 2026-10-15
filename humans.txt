@@ -1,0 +1,17 @@
+/* EQUIPO */
+/* Punto & Alma — crochet artesanal colombiano */
+
+Artesana y fundadora: Punto & Alma
+Ciudad: Manizales, Colombia
+Correo: santiagoquicenomolano@gmail.com
+WhatsApp: +57 313 638 4065
+Sitio: https://puntoyalma.co/
+
+/* TECNOLOGÍA */
+/* Hecho a mano en HTML, CSS y JavaScript, sin frameworks. */
+/* Motor del asistente: local (scripts/ia.js). */
+/* Cuentas: demostración en el navegador (scripts/auth.js). */
+
+/* PRINCIPIOS */
+/* Piezas únicas, materiales suaves, empaque de regalo. */
+/* Si algo no te encanta, tienes 15 días para cambiarlo. */

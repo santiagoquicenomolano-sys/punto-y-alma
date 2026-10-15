@@ -1,0 +1,64 @@
+/* ============================================================
+   PÁGINAS LEGALES · privacidad, términos y cookies
+   ============================================================ */
+
+.legal-portada { padding: 56px 0 6px; }
+.legal-portada h1 { font-size: clamp(2rem, 5vw, 3rem); margin: 14px 0 10px; }
+.legal-portada .legal-fecha { color: var(--gris); font-size: 0.95rem; }
+
+.legal-cuerpo { max-width: 780px; margin: 0 auto; padding: 18px 24px 70px; }
+.legal-cuerpo h2 { font-size: 1.35rem; margin: 36px 0 10px; color: var(--azul); }
+.legal-cuerpo h3 { font-size: 1.1rem; margin: 24px 0 8px; color: var(--azul); }
+.legal-cuerpo p,
+.legal-cuerpo li { color: var(--tinta); line-height: 1.78; }
+.legal-cuerpo ul,
+.legal-cuerpo ol { padding-left: 22px; margin: 10px 0 14px; }
+.legal-cuerpo li { margin: 7px 0; }
+.legal-cuerpo strong { color: var(--azul); }
+.legal-cuerpo a { color: var(--terracota-osc); text-decoration: underline; text-underline-offset: 3px; }
+.legal-cuerpo a:hover { color: var(--terracota); }
+
+/* Marcador para datos que la artesana debe llenar */
+.legal-cuerpo .marcador {
+  display: inline-block;
+  background: #fdf3e7;
+  border: 1px dashed var(--miel);
+  border-radius: 10px;
+  padding: 2px 10px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88rem;
+  color: #8a6318;
+  white-space: nowrap;
+}
+
+.legal-cuerpo .caja-aviso {
+  background: var(--crema);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  padding: 16px 20px;
+  margin: 18px 0;
+}
+.legal-cuerpo .caja-aviso p { margin: 0; }
+
+.legal-actualizado {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--linea);
+  color: var(--gris);
+  font-size: 0.9rem;
+}
+
+/* Tabla simple para el aviso de cookies */
+.legal-tabla { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 0.95rem; }
+.legal-tabla th,
+.legal-tabla td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+.legal-tabla th { color: var(--azul); font-weight: 800; }
+.legal-tabla td { color: var(--tinta); }
+.legal-tabla code { background: var(--crema); padding: 2px 6px; border-radius: 6px; font-size: 0.85rem; }
+
+@media (max-width: 640px) {
+  .legal-cuerpo { padding: 14px 18px 60px; }
+  .legal-tabla { font-size: 0.88rem; }
+  .legal-tabla th,
+  .legal-tabla td { padding: 8px 8px; }
+}

@@ -1,0 +1,509 @@
+/* ============================================================
+   PUNTO & ALMA · Mejoras de la tienda
+   Barra de búsqueda y filtros, tarjetas con favorito y vista
+   rápida, panel de favoritos y ventana de consulta veloz.
+   ============================================================ */
+
+/* ---------- Barra de herramientas ---------- */
+.tienda-barra {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+
+.buscador {
+  position: relative;
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+
+.buscador i {
+  position: absolute;
+  left: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gris);
+  pointer-events: none;
+}
+
+.buscador input {
+  width: 100%;
+  padding: 14px 18px 14px 46px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  color: var(--tinta);
+  font-family: inherit;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(61, 64, 91, 0.05);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.buscador input::placeholder { color: #b3a99e; }
+
+.buscador input:focus {
+  outline: none;
+  border-color: var(--terracota);
+  box-shadow: 0 8px 22px rgba(224, 120, 90, 0.18);
+}
+
+.buscador-limpiar {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--linea);
+  color: var(--gris);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.buscador.con-busqueda .buscador-limpiar { display: grid; }
+
+.select-envoltura { position: relative; }
+
+.select-envoltura select {
+  appearance: none;
+  padding: 14px 42px 14px 18px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  color: var(--tinta);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.select-envoltura i {
+  position: absolute;
+  right: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gris);
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+
+.switch-envoltura {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 18px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+
+.switch-envoltura input { position: absolute; opacity: 0; pointer-events: none; }
+
+.interruptor {
+  position: relative;
+  width: 38px;
+  height: 21px;
+  background: var(--linea);
+  border-radius: 999px;
+  transition: background 0.25s ease;
+}
+
+.interruptor::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s var(--suave);
+}
+
+.switch-envoltura input:checked ~ .interruptor { background: var(--salvia); }
+.switch-envoltura input:checked ~ .interruptor::after { transform: translateX(17px); }
+.switch-envoltura input:focus-visible ~ .interruptor { outline: 3px solid var(--terracota-claro); outline-offset: 2px; }
+
+/* ---------- Filtros por categoría ---------- */
+.filtros {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 17px;
+  background: #fff;
+  border: 1px solid var(--linea);
+  border-radius: 999px;
+  color: var(--tinta);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.24s var(--suave);
+}
+
+.chip i { font-size: 0.78rem; color: var(--terracota); }
+
+.chip:hover { transform: translateY(-2px); border-color: var(--terracota-claro); box-shadow: 0 6px 16px rgba(61, 64, 91, 0.1); }
+
+.chip.activo {
+  background: linear-gradient(135deg, var(--azul), #525a7c);
+  border-color: var(--azul);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(61, 64, 91, 0.26);
+}
+
+.chip.activo i { color: var(--miel); }
+
+.chip-boton {
+  background: transparent;
+  border: none;
+  color: var(--terracota-osc);
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Conteo de resultados ---------- */
+.conteo-resultados {
+  margin: 0 0 18px;
+  color: var(--gris);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+/* ---------- Tarjeta: favorito y vista rápida ---------- */
+.producto-imagen { position: relative; }
+
+.btn-fav,
+.btn-mirar {
+  position: absolute;
+  top: 12px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 253, 250, 0.94);
+  color: var(--azul);
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(61, 64, 91, 0.18);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s var(--suave), background 0.25s ease, color 0.25s ease;
+}
+
+.btn-fav { right: 12px; }
+.btn-mirar {
+  right: 56px;
+  opacity: 0;
+  transform: translateX(8px);
+}
+
+.producto:hover .btn-mirar { opacity: 1; transform: translateX(0); }
+
+.btn-fav:hover,
+.btn-mirar:hover { transform: scale(1.14); background: #fff; }
+
+.btn-fav.activo { color: var(--terracota); background: rgba(224, 120, 90, 0.14); }
+
+/* En móvil siempre visibles */
+@media (hover: none) {
+  .btn-mirar { opacity: 1; transform: none; }
+}
+
+/* ---------- Tarjeta: detalles nuevos ---------- */
+.producto-valoracion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.producto-valoracion .estrellas { font-size: 0.8rem; }
+
+.conteo-resenas { color: var(--gris); font-size: 0.78rem; font-weight: 700; }
+
+.producto-motivo {
+  margin: 0 0 8px;
+  padding: 5px 10px;
+  background: rgba(127, 163, 136, 0.13);
+  border-radius: 8px;
+  color: var(--salvia-osc);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.producto-stock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  color: var(--gris);
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+.producto-stock i { color: var(--salvia); }
+
+.precio-dto {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  background: var(--terracota);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.btn-agregar { display: inline-flex; align-items: center; gap: 7px; }
+
+.btn-agregar i { font-size: 0.85rem; }
+
+/* ---------- Sin resultados ---------- */
+.vacio-busqueda {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 54px 24px;
+  background: #fff;
+  border: 2px dashed var(--linea);
+  border-radius: var(--radio);
+  text-align: center;
+}
+
+.vacio-busqueda i { font-size: 2.2rem; color: var(--terracota-claro); }
+.vacio-busqueda b { font-family: "Fraunces", Georgia, serif; font-size: 1.25rem; color: var(--azul); }
+.vacio-busqueda span { max-width: 380px; color: var(--gris); font-size: 0.93rem; }
+
+/* ---------- Panel de favoritos ---------- */
+#velo-favoritos {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  background: rgba(52, 46, 42, 0.5);
+  backdrop-filter: blur(3px);
+  animation: velo-entra 0.3s ease;
+}
+
+#velo-favoritos[hidden] { display: none; }
+
+.panel-favs {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 951;
+  display: flex;
+  flex-direction: column;
+  width: min(430px, 100vw);
+  height: 100vh;
+  background: var(--crema);
+  box-shadow: -20px 0 60px rgba(61, 64, 91, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.35s var(--suave);
+}
+
+.panel-favs.abierto { transform: translateX(0); }
+.panel-favs[hidden] { display: none; }
+
+.panel-favs-cab {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: #fff;
+  border-bottom: 1px solid var(--linea);
+}
+
+.panel-favs-cab h3 { flex: 1; margin: 0; font-size: 1.3rem; }
+.panel-favs-cab h3 i { color: var(--terracota); margin-right: 8px; }
+
+.cerrar-panel {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background: var(--marfil);
+  color: var(--tinta);
+  cursor: pointer;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.cerrar-panel:hover { transform: rotate(90deg); color: var(--terracota); }
+
+.lista-favs {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+}
+
+.lista-favs .producto { margin: 0; }
+
+.panel-favs-pie {
+  padding: 16px 20px;
+  background: #fff;
+  border-top: 1px solid var(--linea);
+}
+
+.panel-favs-pie .boton { width: 100%; }
+
+@keyframes velo-entra { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Vista rápida ---------- */
+.modal-vista {
+  position: fixed;
+  inset: 0;
+  z-index: 960;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(52, 46, 42, 0.58);
+  backdrop-filter: blur(4px);
+  animation: velo-entra 0.3s ease;
+  overflow-y: auto;
+}
+
+.modal-vista[hidden] { display: none; }
+
+.vista-caja {
+  position: relative;
+  width: min(880px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  background: var(--marfil);
+  border-radius: 24px;
+  box-shadow: var(--sombra-fuerte);
+  animation: surgir 0.35s var(--suave) both;
+}
+
+.vista-rapida {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 0;
+}
+
+.vista-media { position: relative; background: var(--marfil); }
+
+.vista-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: 24px 0 0 24px;
+}
+
+.vista-datos { padding: 28px; }
+
+.vista-datos h3 { margin: 0 0 10px; font-size: 1.75rem; }
+
+.vista-descripcion { margin: 12px 0; color: #4b443d; }
+
+.vista-acciones {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.vista-acciones .btn-fav {
+  position: static;
+  width: 48px;
+  height: 48px;
+  opacity: 1;
+  transform: none;
+  box-shadow: none;
+  border: 1px solid var(--linea);
+}
+
+@media (max-width: 720px) {
+  .vista-rapida { grid-template-columns: 1fr; }
+  .vista-media img { border-radius: 24px 24px 0 0; min-height: 220px; }
+  .vista-datos { padding: 22px; }
+}
+
+/* ---------- Botón de favoritos en la barra ---------- */
+.acciones .fav-boton { position: relative; }
+
+.acciones .fav-boton .fav-contador {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  display: grid;
+  place-items: center;
+  background: var(--terracota);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 999px;
+}
+
+.acciones .fav-boton.activo i { color: var(--terracota); }
+
+/* ---------- Encabezado con sombra por clase ---------- */
+.encabezado.con-sombra { box-shadow: 0 6px 26px rgba(61, 64, 91, 0.12); }
+
+/* ---------- Vistos recientemente ---------- */
+.vistos { background: var(--marfil); padding: 60px 0; }
+.vistos[hidden] { display: none; }
+
+/* ---------- Utilidades compartidas con la ficha de producto ---------- */
+.centro { text-align: center; }
+
+.precio-detalle {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+  color: var(--azul);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.precio-detalle s { color: var(--gris); font-size: 1.1rem; font-weight: 400; }
+
+.beneficios-lista { margin: 14px 0; padding: 0; list-style: none; }
+
+.beneficios-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 5px 0;
+  font-size: 0.93rem;
+  color: #4b443d;
+}
+
+.beneficios-lista li i { margin-top: 3px; color: var(--salvia-osc); }

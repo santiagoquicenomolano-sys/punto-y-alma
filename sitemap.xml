@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mapa del sitio · Punto & Alma (https://puntoyalma.co/) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://puntoyalma.co/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://puntoyalma.co/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Productos -->
+  <url><loc>https://puntoyalma.co/producto.html?id=pulpo-sensorial</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=oso-peluche</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=conejo-simon</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=gato-halloween</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=cobija-atardecer</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=bolso-campo</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=bufanda-nordica</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=set-posavasos</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=patron-encanto-bebe</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=kit-primer-punto</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://puntoyalma.co/producto.html?id=pack-ovillos</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <!-- Ayuda -->
+  <url>
+    <loc>https://puntoyalma.co/ayuda.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal -->
+  <url><loc>https://puntoyalma.co/privacidad.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://puntoyalma.co/terminos.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://puntoyalma.co/cookies.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

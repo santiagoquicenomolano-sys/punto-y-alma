@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Detalle del producto · Punto & Alma, crochet artesanal colombiano.">
+  <meta name="theme-color" content="#3d405b">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://puntoyalma.co/producto.html">
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Punto & Alma">
+  <meta property="og:title" content="Detalle de producto · Punto & Alma">
+  <meta property="og:description" content="Cada pieza es única, hecha 100% a mano en Manizales, Colombia.">
+  <meta property="og:url" content="https://puntoyalma.co/producto.html">
+  <meta property="og:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <meta property="og:image:width" content="960">
+  <meta property="og:image:height" content="640">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Detalle de producto · Punto & Alma">
+  <meta name="twitter:description" content="Cada pieza es única, hecha 100% a mano en Manizales, Colombia.">
+  <meta name="twitter:image" content="https://puntoyalma.co/recursos/img/producto-bolso.jpg">
+  <title>Detalle · Punto &amp; Alma</title>
+
+  <link rel="icon" href="recursos/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="recursos/img/apple-touch-icon.png">
+  <link rel="manifest" href="sitio.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="stylesheet" href="estilos/texturas.css">
+  <link rel="stylesheet" href="estilos/producto.css">
+  <link rel="stylesheet" href="estilos/asistente.css">
+
+  <script src="scripts/auth.js"></script>
+</head>
+<body>
+
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra de anuncio -->
+  <div class="aviso">
+    <p><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Envíos nacionales gratis desde $150.000 · Hecho a mano con amor en Colombia <i class="fa-solid fa-heart" aria-hidden="true"></i></p>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="encabezado">
+    <div class="contenedor barra-superior">
+      <a class="marca" href="index.html#inicio"><i class="fa-solid fa-heart" aria-hidden="true"></i> Punto <span>&amp;</span> Alma</a>
+
+      <button class="boton-menu" id="boton-menu" aria-label="Abrir menú" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+
+      <nav class="menu" id="menu" aria-label="Menú principal">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#categorias">Categorías</a>
+        <a href="index.html#productos">Tienda</a>
+        <a href="index.html#patrones">Patrones</a>
+        <a href="perfil.html">Mi perfil</a>
+        <a href="ayuda.html">Ayuda</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+
+      <div class="acciones">
+        <a class="usuario" href="perfil.html" aria-label="Mi perfil"><i class="fa-solid fa-user" aria-hidden="true"></i></a>
+        <button class="carrito" type="button" aria-label="Abrir el carrito de compras">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span class="contador-carrito" id="contador-carrito">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- Detalle del producto (lo rellena producto.js) -->
+    <div class="contenedor" id="detalle-producto"></div>
+
+    <!-- Productos relacionados -->
+    <section class="seccion relacionados" id="relacionados">
+      <div class="contenedor">
+        <div class="cabecera-seccion reveal">
+          <p class="etiqueta">Te puede gustar</p>
+          <h2>También te van a encantar</h2>
+        </div>
+        <div class="grid-productos" id="relacionados-grid"></div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="seccion boletin">
+      <div class="contenedor boletin-caja reveal">
+        <div>
+          <p class="etiqueta">Únete al círculo de Alma</p>
+          <h2>10% OFF en tu primer pedido</h2>
+          <p>Recibe un patrón gratis, estrenos y ofertas exclusivas. Sin spam, solo buena lana.</p>
+        </div>
+        <form class="form-boletin" id="form-boletin">
+          <input type="email" id="email-boletin" placeholder="tu@correo.com" required aria-label="Tu correo electrónico">
+          <button class="boton" type="submit">Unirme gratis</button>
+          <p class="mensaje-boletin" id="mensaje-boletin" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ¡Listo! Revisa tu correo para tu descuento.</p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="pie" id="contacto">
+    <div class="contenedor pie-grid">
+      <div class="pie-col pie-marca">
+        <p class="pie-titulo"><i class="fa-solid fa-heart" aria-hidden="true"></i> Punto <span>&amp;</span> Alma</p>
+        <p>Crochet artesanal colombiano. Tejemos piezas únicas para quienes buscan regalar —o regalarse— algo con alma.</p>
+        <div class="sociales">
+          <a href="https://wa.me/573136384065" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="pie-col">
+        <p class="pie-titulo">Tienda</p>
+        <a href="index.html#categorias">Amigurumis</a>
+        <a href="index.html#categorias">Cobijas &amp; Hogar</a>
+        <a href="index.html#categorias">Bolsos &amp; Accesorios</a>
+        <a href="index.html#patrones">Patrones &amp; Kits</a>
+      </div>
+      <div class="pie-col">
+        <p class="pie-titulo">Ayuda</p>
+        <a href="ayuda.html#envios">Envíos y tiempos</a>
+        <a href="ayuda.html#devoluciones">Devoluciones (15 días)</a>
+        <a href="ayuda.html#cuidados">Cuidado de tus piezas</a>
+        <a href="ayuda.html#todo">Guía completa</a>
+      </div>
+      <div class="pie-col">
+        <p class="pie-titulo">Contacto</p>
+        <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Manizales, Colombia</p>
+        <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> santiagoquicenomolano@gmail.com</p>
+        <a href="https://wa.me/573136384065" target="_blank" rel="noopener"><i class="fa-solid fa-phone" aria-hidden="true"></i> 313 638 4065</a>
+        <div class="pagos"><span>Bancolombia</span><span>Nequi</span><span>Daviplata</span><span>Visa/MC</span></div>
+      </div>
+    </div>
+    <div class="contenedor pie-legal">
+      <p>© 2026 Punto &amp; Alma · Hecho con <i class="fa-solid fa-heart" aria-hidden="true"></i> y mucha lana ·
+        <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a> · <a href="cookies.html">Cookies</a> ·
+        <a href="ayuda.html">Ayuda</a></p>
+    </div>
+  </footer>
+
+  <!-- Aviso "añadido al carrito" -->
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden><i class="fa-solid fa-circle-check" aria-hidden="true"></i> ¡Añadido a tu carrito!</div>
+
+  <script src="scripts/sitio.js" defer></script>
+  <script src="scripts/catalogo.js" defer></script>
+  <script src="scripts/contenido.js" defer></script>
+  <script src="scripts/db.js" defer></script>
+  <script src="scripts/comun.js" defer></script>
+  <script src="scripts/registro.js" defer></script>
+  <script src="scripts/carrito.js" defer></script>
+  <script src="scripts/ia.js" defer></script>
+  <script src="scripts/asistente.js" defer></script>
+  <script src="scripts/producto.js" defer></script>
+</body>
+</html>
