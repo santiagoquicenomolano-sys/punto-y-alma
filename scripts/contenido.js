@@ -40,7 +40,7 @@
     { clave: 'categorias-titulo', etiqueta: 'Título de categorías', tipo: 'titulo', seccion: 'categorias', original: 'Encuentra tu pieza ideal' },
     { clave: 'productos-titulo', etiqueta: 'Título de productos', tipo: 'titulo', seccion: 'productos', original: 'Productos estrella' },
     { clave: 'productos-texto', etiqueta: 'Párrafo de productos', tipo: 'parrafo', seccion: 'productos', original: 'Piezas únicas tejidas una por una. Al agotarse, no se repiten igual.' },
-    { clave: 'oferta-titulo', etiqueta: 'Título de la oferta', tipo: 'titulo', seccion: 'oferta', original: '20% OFF en cobijas y mantas' },
+    { clave: 'oferta-titulo', etiqueta: 'Título de la oferta', tipo: 'titulo', seccion: 'oferta', original: '22% OFF en cobijas y mantas' },
     { clave: 'oferta-texto', etiqueta: 'Párrafo de la oferta', tipo: 'parrafo', seccion: 'oferta', original: 'La calidez que tu hogar necesita, con precio de abrazo. Solo hasta el 31 de octubre.' },
     { clave: 'patrones-titulo', etiqueta: 'Título de patrones', tipo: 'titulo', seccion: 'patrones', original: 'Patrones & kits para crear' },
     { clave: 'patrones-texto', etiqueta: 'Párrafo de patrones', tipo: 'parrafo', seccion: 'patrones', original: 'Instrucciones claras paso a paso, con fotos y video. Descargas que se convierten en tesoros.' },

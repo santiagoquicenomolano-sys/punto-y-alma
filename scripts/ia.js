@@ -101,7 +101,7 @@
       resumen: 'Un vistazo a como esta construida la tienda.',
       pasos: [
         { titulo: 'Todo es artesanal', texto: 'Cada pieza se teje a mano en Manizales. No hay dos iguales, por eso algunas tienen pocas unidades.' },
-        { titulo: 'Hay piezas y descargas', texto: 'Los productos "fisicos" te llegan a la direccion que dejas. Los "digitales" (patrones y kits) se descargan al instante tras el pago.' },
+        { titulo: 'Hay piezas y descargas', texto: 'Los productos "fisicos" (piezas, kits y lanas) te llegan a la direccion que dejas. Los "digitales" (patrones PDF) se descargan al instante tras el pago.' },
         { titulo: 'El carrito es real', texto: 'Lo que agregas se guarda en tu navegador. Al finalizar el pedido queda registrado en el panel de ventas.' },
         { titulo: 'Hay una comunidad', texto: 'En tu perfil puedes publicar tus creaciones y participar en el foro con otras tejedoras.' },
       ],
@@ -120,7 +120,7 @@
         { titulo: 'Finaliza el pedido', texto: 'Escribe tu nombre, tu telefono y tu direccion (o "recojo en Manizales"), luego pulsa "Finalizar pedido".', enlace: 'carrito-abierto', etiqueta: 'Abrir mi carrito' },
         { titulo: 'Te contactamos', texto: 'Recibimos el pedido y te escribimos por WhatsApp para confirmar el pago y el envio.' },
       ],
-      tips: ['Envio gratis en pedidos desde $150.000.', 'Guarda el numero 313 638 4065 por si necesitas cambiar la direccion.'],
+      tips: ['Envio gratis en pedidos desde $99.000.', 'Guarda el numero 313 638 4065 por si necesitas cambiar la direccion.'],
     },
     {
       id: 'pagar',
@@ -144,7 +144,7 @@
       resumen: 'Cuando llega tu pedido.',
       pasos: [
         { titulo: 'Se despacha en 24-72 horas', texto: 'Tus piezas se empacan y reciben numero de guia.' },
-        { titulo: 'Llega a todo Colombia', texto: 'Envio gratis desde $150.000. Para compras menores te cotizamos el valor.' },
+        { titulo: 'Llega a todo Colombia', texto: 'Envio gratis desde $99.000. Para compras menores te cotizamos el valor.' },
         { titulo: 'Te avisamos por WhatsApp', texto: 'En cuanto salga tu pedido te mandamos el numero de seguimiento.' },
       ],
       tips: ['Las piezas digitales no se envian: te llegan al correo en minutos.'],

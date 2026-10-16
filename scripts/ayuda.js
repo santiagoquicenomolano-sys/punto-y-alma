@@ -197,7 +197,7 @@
      ============================================================ */
   const FAQ = [
     ['¿Cuánto tarda mi pedido?', 'Despachamos entre 24 y 72 horas después de confirmar el pago. Luego depende de la transportadora: entre 1 y 5 días hábiles según la ciudad. Te mandamos la guía de seguimiento por WhatsApp.'],
-    ['¿Los envíos tienen costo?', 'El envío es gratis en pedidos desde $150.000. Si tu compra es menor, te cotizamos según el destino antes de que pagues.'],
+    ['¿Los envíos tienen costo?', 'El envío es gratis en pedidos desde $99.000. Si tu compra es menor, te cotizamos según el destino antes de que pagues.'],
     ['¿Puedo pagar al recibir?', 'Sí, el pago contra entrega está disponible en Manizales y municipios cercanos. Fuera de esa zona manejamos Nequi, Daviplata, transferencia o tarjeta.'],
     ['¿Las piezas son iguales a las fotos?', 'Son iguales en diseño y materiales, pero al ser tejidas a mano cada una tiene su carácter. Si un color se agotó, te escribimos antes de tejer para ofrecerte una alternativa.'],
     ['¿Hacen piezas personalizadas?', 'Claro. Escríbenos por WhatsApp con tu idea, los colores y el tamaño, y te cotizamos. Los pedidos personalizados tardan entre 5 y 15 días.'],
