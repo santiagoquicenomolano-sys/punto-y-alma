@@ -303,3 +303,8 @@
   .carrusel-punto.activo { width: 22px; }
   .carrusel-flecha { opacity: 1; }
 }
+/* Opt. rendimiento: picture del carrusel */
+.carrusel-slide picture{display:block;width:100%;height:100%}
+.carrusel-slide picture img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-estatica{width:100%;height:auto;display:block}
+

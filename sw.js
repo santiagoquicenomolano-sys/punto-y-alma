@@ -9,7 +9,7 @@
    Para publicar una versión nueva: sube CACHE a punto-alma-v2, v3...
    ============================================================ */
 
-const CACHE = 'punto-alma-v3';
+const CACHE = 'punto-alma-v4';
 
 const SHELL = [
   'index.html',

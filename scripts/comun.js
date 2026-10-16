@@ -70,7 +70,7 @@
       <article class="producto reveal visible" data-id="${esc(p.id)}">
         <a class="producto-imagen" href="producto.html?id=${encodeURIComponent(p.id)}"
            aria-label="Ver detalles de ${esc(p.nombre)}">
-          <img src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">
+           <picture><source srcset="${esc(p.imagen.replace(/\.jpg$/i, '.webp'))}" type="image/webp"><img src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy" width="600" height="600" decoding="async"></picture>
           ${insigniaHTML(p)}
           <button class="btn-mirar" type="button" data-mirar="${esc(p.id)}"
                   aria-label="Vista rápida de ${esc(p.nombre)}" title="Vista rápida">

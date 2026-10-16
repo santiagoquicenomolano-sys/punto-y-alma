@@ -176,7 +176,7 @@
       (src, i) => `
       <button type="button" data-src="${esc(src)}" class="${i === 0 ? 'activo' : ''}"
               aria-label="Ver imagen ${i + 1} de ${esc(producto.nombre)}">
-        <img src="${esc(src)}" alt="Vista ${i + 1} de ${esc(producto.nombre)}" loading="lazy">
+        <img src="${esc(src)}" alt="Vista ${i + 1} de ${esc(producto.nombre)}" loading="lazy" width="120" height="120" decoding="async">
       </button>`
     )
     .join('');
@@ -232,7 +232,7 @@
     <div class="detalle-grid">
       <div class="galeria">
         <div class="galeria-principal">
-          <img id="imagen-principal" src="${esc(producto.imagen)}" alt="${esc(producto.nombre)}">
+          <picture><source id="imagen-principal-webp" srcset="${esc(String(producto.imagen).replace(/\.jpg$/i, '.webp'))}" type="image/webp"><img id="imagen-principal" src="${esc(producto.imagen)}" alt="${esc(producto.nombre)}" width="800" height="800" fetchpriority="high" decoding="async"></picture>
           ${insigniaHTML}
           <button class="btn-fav ${C.esFavorito(producto.id) ? 'activo' : ''}" type="button"
                   data-fav="${esc(producto.id)}"
@@ -287,6 +287,7 @@
 
   /* ---------- Galería ---------- */
   const imagenPrincipal = document.getElementById('imagen-principal');
+  const imagenPrincipalWebp = document.getElementById('imagen-principal-webp');
   const galeriaMini = document.getElementById('galeria-mini');
 
   galeriaMini.querySelectorAll('button').forEach((boton) => {
@@ -295,6 +296,7 @@
       boton.classList.add('activo');
       imagenPrincipal.classList.add('galeria-pop');
       imagenPrincipal.src = boton.dataset.src;
+      if (imagenPrincipalWebp) imagenPrincipalWebp.srcset = String(boton.dataset.src || '').replace(/\.jpg$/i, '.webp');
       requestAnimationFrame(() => imagenPrincipal.classList.remove('galeria-pop'));
     });
   });

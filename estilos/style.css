@@ -1547,3 +1547,10 @@ input:focus-visible {
   .historia-imagen { order: -1; }
   .historia-imagen img { max-height: 320px; }
 }
+
+/* Opt. rendimiento: picture en categorias e historia */
+.categoria picture{display:block;width:100%}
+.categoria picture img{width:100%;height:320px;object-fit:cover;display:block}
+.historia-imagen picture{display:block;width:100%}
+.historia-imagen picture img{width:100%;height:auto;display:block}
+

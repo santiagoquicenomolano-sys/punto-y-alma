@@ -368,3 +368,7 @@
 @media (max-width: 640px) {
   .btn-ia { justify-content: center; }
 }
+/* Opt. rendimiento: picture galeria */
+.galeria-principal picture{display:block;width:100%}
+.galeria-principal picture img{width:100%;height:auto;display:block}
+

@@ -32,13 +32,20 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" href="recursos/img/producto-pulpo.webp" fetchpriority="high">
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="estilos/style.css">
   <link rel="stylesheet" href="estilos/texturas.css">
-  <link rel="stylesheet" href="estilos/tienda.css">
-  <link rel="stylesheet" href="estilos/carrusel.css">
-  <link rel="stylesheet" href="estilos/asistente.css">
+  <link rel="preload" as="style" href="estilos/tienda.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="estilos/carrusel.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="estilos/asistente.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="estilos/tienda.css">
+    <link rel="stylesheet" href="estilos/carrusel.css">
+    <link rel="stylesheet" href="estilos/asistente.css">
+  </noscript>
 
   <script type="application/ld+json">
   {
@@ -185,19 +192,19 @@
         </div>
         <div class="grid-categorias">
           <a class="categoria reveal" href="#productos" data-ir-categoria="Amigurumi">
-            <img src="recursos/img/amigurumi.jpg" alt="Amigurumis de crochet" loading="lazy" width="500" height="500">
+            <picture><source srcset="recursos/img/amigurumi.webp" type="image/webp"><img src="recursos/img/amigurumi.jpg" alt="Amigurumis de crochet" loading="lazy" decoding="async" width="500" height="500"></picture>
             <div class="categoria-nombre"><h3>Amigurumis</h3><p>Muñecos que roban abrazos</p><span>Ver piezas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div>
           </a>
           <a class="categoria reveal" href="#productos" data-ir-categoria="Cobijas & Hogar">
-            <img src="recursos/img/producto-flor.jpg" alt="Decoración tejida a crochet" loading="lazy" width="500" height="500">
+            <picture><source srcset="recursos/img/producto-flor.webp" type="image/webp"><img src="recursos/img/producto-flor.jpg" alt="Decoración tejida a crochet" loading="lazy" decoding="async" width="500" height="500"></picture>
             <div class="categoria-nombre"><h3>Cobijas &amp; Hogar</h3><p>Calidez que abraza</p><span>Ver piezas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div>
           </a>
           <a class="categoria reveal" href="#productos" data-ir-categoria="Bolsos & Accesorios">
-            <img src="recursos/img/producto-bolso.jpg" alt="Bolso tejido a crochet" loading="lazy" width="500" height="500">
+            <picture><source srcset="recursos/img/producto-bolso.webp" type="image/webp"><img src="recursos/img/producto-bolso.jpg" alt="Bolso tejido a crochet" loading="lazy" decoding="async" width="500" height="500"></picture>
             <div class="categoria-nombre"><h3>Bolsos &amp; Accesorios</h3><p>Estilo con alma artesanal</p><span>Ver piezas <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div>
           </a>
           <a class="categoria reveal" href="#patrones">
-            <img src="recursos/img/producto-ovillos.jpg" alt="Ovillos de lana para tejer" loading="lazy" width="500" height="500">
+            <picture><source srcset="recursos/img/producto-ovillos.webp" type="image/webp"><img src="recursos/img/producto-ovillos.jpg" alt="Ovillos de lana para tejer" loading="lazy" decoding="async" width="500" height="500"></picture>
             <div class="categoria-nombre"><h3>Patrones &amp; Kits</h3><p>Aprende a crear con nosotras</p><span>Ver patrones <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></div>
           </a>
         </div>
@@ -362,7 +369,7 @@
           <a class="boton boton-claro" href="#productos">Conocer las piezas</a>
         </div>
         <div class="historia-imagen">
-          <img src="recursos/img/patrones.jpg" alt="Patrones y ovillos de lana para tejer" loading="lazy" width="960" height="1358">
+          <picture><source srcset="recursos/img/patrones.webp" type="image/webp"><img src="recursos/img/patrones.jpg" alt="Patrones y ovillos de lana para tejer" loading="lazy" decoding="async" width="960" height="1358"></picture>
         </div>
       </div>
     </section>

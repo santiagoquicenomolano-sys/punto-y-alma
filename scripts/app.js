@@ -503,7 +503,7 @@
     /* Sin carrusel: la foto fija de siempre. */
     if (!cfg || !cfg.activo) {
       marco.outerHTML =
-        '<img class="hero-estatica" src="recursos/img/ganchos.jpg" alt="Manos tejiendo a crochet un punto de inicio" width="600" height="700" fetchpriority="high">';
+        '<picture><source srcset="recursos/img/ganchos.webp" type="image/webp"><img class="hero-estatica" src="recursos/img/ganchos.jpg" alt="Manos tejiendo a crochet un punto de inicio" width="600" height="700" fetchpriority="high" decoding="async"></picture>';
       return;
     }
 
@@ -536,7 +536,7 @@
              aria-label="${i + 1} de ${lista.length}: ${C.esc(p.nombre)}"
              aria-hidden="${i === 0 ? 'false' : 'true'}"
              ${i === 0 ? '' : 'tabindex="-1"'}>
-            <img src="${C.esc(p.imagen)}" alt="${C.esc(p.nombre)}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">
+            <picture><source srcset="${C.esc(String(p.imagen).replace(/\.jpg$/i, '.webp'))}" type="image/webp"><img src="${C.esc(p.imagen)}" alt="${C.esc(p.nombre)}" width="600" height="700" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"></picture>
             <div class="carrusel-datos">
               ${p.insignia ? `<span class="carrusel-etiqueta">${C.esc(p.insignia)}</span>` : ''}
               ${cfg.mostrarNombre ? `<b class="carrusel-nombre">${C.esc(p.nombre)}</b>` : ''}
