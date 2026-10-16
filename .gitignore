@@ -12,3 +12,6 @@ desktop.ini
 # No subir claves locales (la anon key de Supabase vive en localStorage, pero por si acaso)
 .env
 .env.*
+
+.vercel
+.env*
